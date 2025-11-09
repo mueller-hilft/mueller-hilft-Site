@@ -3,22 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mueller-hilft – Baumaschinen & Werkzeuge mieten</title>
+  <title>mueller-hilft – Baumaschinen & Werkzeuge mieten</title>
   <meta name="description" content="Vermietung von Baumaschinen, Werkzeugen und Geräten – fair, schnell, zuverlässig. Jetzt anfragen!" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #0f172a;
-      --card: #111827;
-      --muted: #94a3b8;
-      --text: #e5e7eb;
-      --accent: #22c55e;
-      --accent-2: #16a34a;
-      --shadow: 0 10px 30px rgba(0,0,0,.3);
-      --radius: 16px;
-      --maxw: 1100px;
-    }
+    :root { --bg:#0f172a; --card:#111827; --muted:#94a3b8; --text:#e5e7eb; --accent:#22c55e; --accent-2:#16a34a; --shadow:0 10px 30px rgba(0,0,0,.3); --radius:16px; --maxw:1100px; }
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
     a{color:var(--text);text-decoration:none}
     .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
@@ -50,24 +40,20 @@
     .plan h3{margin:0}
     form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     form .full{grid-column:1/-1}
-    input,select,textarea{width:100%;background:#0b1020;color:var(--text);border:1px solid rgba(148,163,184,.2);border-radius:12px;padding:12px;outline:none}
+    input,select,textarea{width:100%;background:#0b1020;color:#e5e7eb;border:1px solid rgba(148,163,184,.2);border-radius:12px;padding:12px;outline:none}
     textarea{min-height:120px}
     .hint{color:var(--muted);font-size:13px}
     footer{padding:40px 0;color:#9aa7bd}
     .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px}
     .small{font-size:13px;color:#9aa7bd}
-    @media (max-width:720px){
-      .strip{grid-template-columns:1fr}
-      form{grid-template-columns:1fr}
-      .footer-grid{grid-template-columns:1fr}
-    }
+    @media (max-width:720px){.strip{grid-template-columns:1fr} form{grid-template-columns:1fr} .footer-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <header>
     <div class="container">
       <nav>
-        <div class="brand">mueller‑hilft</div>
+        <div class="brand">mueller-hilft</div>
         <div class="nav">
           <a href="#geraete">Geräte</a>
           <a href="#ablauf">Ablauf</a>
@@ -80,7 +66,7 @@
 
   <section class="hero container">
     <h1>Baumaschinen & Werkzeuge mieten – fair, schnell, zuverlässig.</h1>
-    <p>Vermietung von Baumaschinen, Werkzeugen, Geräten und Arbeitsmitteln – inkl. Einweisung und optionaler Lieferung. Ideal für Baustellen, Garten‑ & Umbauprojekte in Ihrer Region.</p>
+    <p>Vermietung von Baumaschinen, Werkzeugen, Geräten und Arbeitsmitteln – inkl. Einweisung und optionaler Lieferung. Ideal für Baustellen, Garten- & Umbauprojekte in Ihrer Region.</p>
     <div class="strip">
       <div class="pill">✔ Übergabeprotokoll & UVV – alles dabei</div>
       <div class="pill">✔ Transparente Preise & Kaution</div>
@@ -111,7 +97,7 @@
           <div class="img" style="background-image:url('https://images.unsplash.com/photo-1511456886385-eda114a7a8b8?q=80&w=1200&auto=format&fit=crop')"></div>
           <div class="body">
             <span class="badge">Kernbohrgerät</span>
-            <h3>Bohrhammer SDS‑Max</h3>
+            <h3>Bohrhammer SDS-Max</h3>
             <div class="price">ab 19 € / Tag</div>
             <ul class="list">
               <li>Inkl. Meißel-Set</li>
@@ -162,7 +148,7 @@
           <p class="small">Kaution: 200 €</p>
         </div>
         <div class="plan">
-          <h3>Bohrhammer SDS‑Max</h3>
+          <h3>Bohrhammer SDS-Max</h3>
           <p class="price">19 € / Tag • 79 € / Woche</p>
           <p class="small">Kaution: 100 €</p>
         </div>
@@ -174,23 +160,38 @@
   <section id="kontakt" class="section">
     <div class="container">
       <h2>Anfrage</h2>
-      <p class="hint">Formular als Baustein – bei Livebetrieb Empfängeradresse/Backend hinterlegen.</p>
-      <form action="#" method="post" onsubmit="alert('Dies ist eine statische Demo. Bitte E-Mail-Adresse im Formular-Code hinterlegen oder einen Formular‑Dienst verbinden.'); return false;">
+      <p class="hint">Deine Daten landen direkt bei uns. Wir melden uns kurzfristig zurück.</p>
+      <form action="https://formspree.io/f/mwapeaewq" method="POST">
         <div>
-          <label>Vorname, Nachname<br><input required placeholder="Max Mustermann"></label>
+          <label>Vorname, Nachname<br>
+            <input name="name" required placeholder="Max Mustermann">
+          </label>
         </div>
         <div>
-          <label>E‑Mail<br><input type="email" required placeholder="max@example.de"></label>
+          <label>E-Mail<br>
+            <input name="_replyto" type="email" required placeholder="max@example.de">
+          </label>
         </div>
         <div>
-          <label>Telefon<br><input placeholder="0151 ..."></label>
+          <label>Telefon<br>
+            <input name="phone" placeholder="0151 ...">
+          </label>
         </div>
         <div>
-          <label>Zeitraum<br><input placeholder="12.03.–14.03."></label>
+          <label>Zeitraum<br>
+            <input name="dates" placeholder="12.03.–14.03.">
+          </label>
         </div>
         <div class="full">
-          <label>Gerät/Anliegen<br><textarea placeholder="Welches Gerät, Zubehör, Lieferung ja/nein …"></textarea></label>
+          <label>Gerät/Anliegen<br>
+            <textarea name="message" placeholder="Welches Gerät, Zubehör, Lieferung ja/nein …"></textarea>
+          </label>
         </div>
+
+        <input type="hidden" name="_subject" value="Neue Anfrage über mueller-hilft.de">
+        <input type="hidden" name="_redirect" value="https://www.mueller-hilft.de/?danke=1">
+        <input type="text" name="_gotcha" style="display:none">
+
         <div class="full">
           <button class="btn" type="submit">Anfrage senden</button>
         </div>
@@ -202,9 +203,9 @@
   <footer>
     <div class="container footer-grid">
       <div>
-        <strong>mueller‑hilft</strong><br>
+        <strong>mueller-hilft</strong><br>
         Vermietung von Baumaschinen & Werkzeugen<br>
-        <span class="small">[Straße, PLZ Ort] • Tel: [Telefon] • E‑Mail: info@mueller-hilft.de</span>
+        <span class="small">[Straße, PLZ Ort] • Tel: [Telefon] • E-Mail: info@mueller-hilft.de</span>
       </div>
       <div>
         <strong>Recht</strong><br>
@@ -219,7 +220,7 @@
       </div>
     </div>
     <div class="container" style="margin-top:16px">
-      <span class="small">© <span id="y"></span> mueller‑hilft</span>
+      <span class="small">© <span id="y"></span> mueller-hilft</span>
     </div>
   </footer>
 
