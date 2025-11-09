@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>mueller-hilft – Baumaschinen & Werkzeuge mieten</title>
+  <meta name="description" content="Vermietung von Baumaschinen, Werkzeugen und Geräten – fair, schnell, zuverlässig. Jetzt anfragen!" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --muted: #94a3b8;
+      --text: #e5e7eb;
+      --accent: #22c55e;
+      --accent-2: #16a34a;
+      --shadow: 0 10px 30px rgba(0,0,0,.3);
+      --radius: 16px;
+      --maxw: 1100px;
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+    a{color:var(--text);text-decoration:none}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    .btn{display:inline-block;background:var(--accent);color:#0b0f1a;padding:12px 18px;border-radius:12px;font-weight:700;box-shadow:var(--shadow);transition:.2s transform}
+    .btn:hover{transform:translateY(-2px);background:var(--accent-2)}
+    header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(8px);background:rgba(15,23,42,.6);border-bottom:1px solid rgba(148,163,184,.15);z-index:50}
+    nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{font-weight:800;letter-spacing:.3px}
+    .nav a{opacity:.9;margin-left:18px}
+    .hero{padding:64px 0 40px}
+    .hero h1{font-size:clamp(28px,5vw,48px);line-height:1.1;margin:0 0 10px}
+    .hero p{color:var(--muted);font-size:clamp(16px,2.5vw,18px);max-width:760px}
+    .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
+    .pill{background:rgba(148,163,184,.12);padding:10px 14px;border-radius:999px;text-align:center;color:#cbd5e1}
+    .section{padding:48px 0;border-top:1px solid rgba(148,163,184,.08)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));border:1px solid rgba(148,163,184,.14);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    .card .img{height:160px;background:#0b1220 url('https://images.unsplash.com/photo-1603561240205-6e3a2502c255?q=80&w=1200&auto=format&fit=crop') center/cover}
+    .card .body{padding:16px}
+    .badge{display:inline-block;background:rgba(34,197,94,.15);color:#bbf7d0;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:700}
+    .price{font-weight:800;font-size:20px;margin-top:8px}
+    .list{color:var(--muted);font-size:14px;line-height:1.6}
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .step{background:var(--card);border:1px solid rgba(148,163,184,.12);border-radius:var(--radius);padding:16px}
+    .step h4{margin:6px 0 6px}
+    .step .num{width:28px;height:28px;display:inline-grid;place-items:center;background:var(--accent);color:#00150a;border-radius:999px;font-weight:800}
+    .pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+    .pricing .plan{background:var(--card);border:1px solid rgba(148,163,184,.12);border-radius:var(--radius);padding:18px}
+    .plan h3{margin:0}
+    form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    form .full{grid-column:1/-1}
+    input,select,textarea{width:100%;background:#0b1020;color:var(--text);border:1px solid rgba(148,163,184,.2);border-radius:12px;padding:12px;outline:none}
+    textarea{min-height:120px}
+    .hint{color:var(--muted);font-size:13px}
+    footer{padding:40px 0;color:#9aa7bd}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px}
+    .small{font-size:13px;color:#9aa7bd}
+    @media (max-width:720px){
+      .strip{grid-template-columns:1fr}
+      form{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">mueller‑hilft</div>
+        <div class="nav">
+          <a href="#geraete">Geräte</a>
+          <a href="#ablauf">Ablauf</a>
+          <a href="#preise">Preise</a>
+          <a href="#kontakt" class="btn">Jetzt anfragen</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero container">
+    <h1>Baumaschinen & Werkzeuge mieten – fair, schnell, zuverlässig.</h1>
+    <p>Vermietung von Baumaschinen, Werkzeugen, Geräten und Arbeitsmitteln – inkl. Einweisung und optionaler Lieferung. Ideal für Baustellen, Garten‑ & Umbauprojekte in Ihrer Region.</p>
+    <div class="strip">
+      <div class="pill">✔ Übergabeprotokoll & UVV – alles dabei</div>
+      <div class="pill">✔ Transparente Preise & Kaution</div>
+      <div class="pill">✔ Zustellung/Abholung auf Wunsch</div>
+    </div>
+    <a href="#kontakt" class="btn">Unverbindlich anfragen</a>
+  </section>
+
+  <section id="geraete" class="section">
+    <div class="container">
+      <h2>Unsere Geräte</h2>
+      <p class="hint">Baustein: Kopieren Sie Karten für weitere Geräte. Bild/Preis/Details anpassen.</p>
+      <div class="grid">
+        <article class="card">
+          <div class="img" aria-label="Minibagger"></div>
+          <div class="body">
+            <span class="badge">Bagger 1,9 t</span>
+            <h3>Minibagger inkl. Tieflöffel</h3>
+            <div class="price">ab 129 € / Tag</div>
+            <ul class="list">
+              <li>Schnellwechsler, 30/60 cm Löffel</li>
+              <li>Optional: Grabenräumwanne</li>
+              <li>Kaution: 500 €</li>
+            </ul>
+          </div>
+        </article>
+        <article class="card">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1511456886385-eda114a7a8b8?q=80&w=1200&auto=format&fit=crop')"></div>
+          <div class="body">
+            <span class="badge">Kernbohrgerät</span>
+            <h3>Bohrhammer SDS‑Max</h3>
+            <div class="price">ab 19 € / Tag</div>
+            <ul class="list">
+              <li>Inkl. Meißel-Set</li>
+              <li>Kaution: 100 €</li>
+            </ul>
+          </div>
+        </article>
+        <article class="card">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1523419409543-0883da3ad5bb?q=80&w=1200&auto=format&fit=crop')"></div>
+          <div class="body">
+            <span class="badge">Rüttelplatte</span>
+            <h3>Verdichter 90 kg</h3>
+            <div class="price">ab 29 € / Tag</div>
+            <ul class="list">
+              <li>Arbeitsbreite 40 cm</li>
+              <li>Kaution: 200 €</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="ablauf" class="section">
+    <div class="container">
+      <h2>So läuft's</h2>
+      <div class="steps">
+        <div class="step"><span class="num">1</span><h4>Anfrage</h4><p class="small">Sie schicken Wunschgerät, Zeitraum, Lieferadresse.</p></div>
+        <div class="step"><span class="num">2</span><h4>Angebot & Reservierung</h4><p class="small">Wir bestätigen die Verfügbarkeit und reservieren.</p></div>
+        <div class="step"><span class="num">3</span><h4>Übergabe & Einweisung</h4><p class="small">Mit Protokoll, Kaution & Einweisungsbestätigung.</p></div>
+        <div class="step"><span class="num">4</span><h4>Rückgabe</h4><p class="small">Gereinigt & vollgetankt – wir prüfen und rechnen ab.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="preise" class="section">
+    <div class="container">
+      <h2>Preise (Beispiele)</h2>
+      <div class="pricing">
+        <div class="plan">
+          <h3>Minibagger 1,9 t</h3>
+          <p class="price">129 € / Tag • 599 € / Woche</p>
+          <p class="small">Mehrstunden: 12 €/Bh • Kaution: 500 €</p>
+        </div>
+        <div class="plan">
+          <h3>Rüttelplatte 90 kg</h3>
+          <p class="price">29 € / Tag • 129 € / Woche</p>
+          <p class="small">Kaution: 200 €</p>
+        </div>
+        <div class="plan">
+          <h3>Bohrhammer SDS‑Max</h3>
+          <p class="price">19 € / Tag • 79 € / Woche</p>
+          <p class="small">Kaution: 100 €</p>
+        </div>
+      </div>
+      <p class="hint">Alle Preise zzgl. USt (falls nicht Kleinunternehmer). Lieferung auf Anfrage.</p>
+    </div>
+  </section>
+
+  <section id="kontakt" class="section">
+    <div class="container">
+      <h2>Anfrage</h2>
+      <p class="hint">Formular als Baustein – bei Livebetrieb Empfängeradresse/Backend hinterlegen.</p>
+      <form action="#" method="post" onsubmit="alert('Dies ist eine statische Demo. Bitte E-Mail-Adresse im Formular-Code hinterlegen oder einen Formular‑Dienst verbinden.'); return false;">
+        <div>
+          <label>Vorname, Nachname<br><input required placeholder="Max Mustermann"></label>
+        </div>
+        <div>
+          <label>E‑Mail<br><input type="email" required placeholder="max@example.de"></label>
+        </div>
+        <div>
+          <label>Telefon<br><input placeholder="0151 ..."></label>
+        </div>
+        <div>
+          <label>Zeitraum<br><input placeholder="12.03.–14.03."></label>
+        </div>
+        <div class="full">
+          <label>Gerät/Anliegen<br><textarea placeholder="Welches Gerät, Zubehör, Lieferung ja/nein …"></textarea></label>
+        </div>
+        <div class="full">
+          <button class="btn" type="submit">Anfrage senden</button>
+        </div>
+        <p class="hint full">Mit Senden akzeptieren Sie unsere AGB und Datenschutzhinweise.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>mueller‑hilft</strong><br>
+        Vermietung von Baumaschinen & Werkzeugen<br>
+        <span class="small">[Straße, PLZ Ort] • Tel: [Telefon] • E‑Mail: info@mueller-hilft.de</span>
+      </div>
+      <div>
+        <strong>Recht</strong><br>
+        <a class="small" href="#">Impressum</a><br>
+        <a class="small" href="#">Datenschutzhinweise</a><br>
+        <a class="small" href="#">AGB</a>
+      </div>
+      <div>
+        <strong>Info</strong><br>
+        <span class="small">Abholung: [Adresse/Lager]. Lieferung nach Absprache.</span><br>
+        <span class="small">Öffnungszeiten: [Zeiten]</span>
+      </div>
+    </div>
+    <div class="container" style="margin-top:16px">
+      <span class="small">© <span id="y"></span> mueller‑hilft</span>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
