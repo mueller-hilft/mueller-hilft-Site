@@ -175,72 +175,49 @@ section {
   gap: 18px;
 }
 
-/* Dropdown-Container */
-.dropdown {
-  position: relative;
-}
-
-.dropdown-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  color: #1f2324;
-  font-weight: 600;
+/* Hamburger-Button */
+.menu-toggle {
+  display: none;
+  width: 34px;
+  height: 28px;
+  flex-direction: column;
+  justify-content: space-between;
   cursor: pointer;
 }
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  background: #1f2324;
+  border-radius: 6px;
+}
 
-.dropdown-menu {
-  position: absolute;
-  top: 120%;
-  left: 0;
-  background: #ffffff;
-  min-width: 190px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.15);
-  padding: 8px 0;
+/* Mobile-Menü (ausklappbar) */
+.mobile-nav {
   display: none;
-  z-index: 200;
+  flex-direction: column;
+  gap: 10px;
+  background: #e9eae5;
+  padding: 12px 0 16px;
 }
-
-.dropdown-menu a {
-  display: block;
-  padding: 8px 14px;
+.mobile-nav a {
   color: #1f2324;
-  font-weight: 500;
-  white-space: nowrap;
+  font-weight: 600;
+  padding: 4px 0;
 }
 
-.dropdown-menu a:hover {
-  background: rgba(242,154,46,.1);
-  color: #1f2324;
-}
-
-/* Dropdown sichtbar wenn .open */
-.dropdown.open .dropdown-menu {
-  display: block;
-}
-
-/* mobile: nav umbrechen */
+/* Desktop: normale Nav */
 @media (max-width: 720px) {
-  nav {
-    flex-wrap: wrap;
-    gap: 10px;
-    height: auto;
-  }
   .nav {
-    flex-wrap: wrap;
+    display: none; /* oben verstecken */
   }
-  .dropdown-menu {
-    position: static;
-    box-shadow: none;
-    background: transparent;
-    padding: 0;
+  .menu-toggle {
+    display: flex;
   }
-  .dropdown-menu a {
-    padding: 6px 0;
-    background: transparent;
+  .mobile-nav.show {
+    display: flex;
   }
 }
+
     
     
   </style>
@@ -256,33 +233,41 @@ section {
 
   
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <div class="brand">
-  <img src="logo.png" alt="MÜLLER hilft" />
+<header>
+  <div class="container">
+    <nav>
+      <div class="brand">
+        <img src="logo.png" alt="MÜLLER hilft" />
+      </div>
 
-</div>
-        <div class="nav">
-  <a href="#geraete">Geräte</a>
+      <!-- Desktop-Navi -->
+      <div class="nav">
+        <a href="#geraete">Geräte</a>
+        <a href="#leistungen">Dienstleistungen</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#preise">Preise</a>
+        <a href="#kontakt" class="btn">Jetzt anfragen</a>
+      </div>
 
-  <div class="dropdown" id="dl-drop">
-    <span class="dropdown-toggle">Dienstleistungen ▾</span>
-    <div class="dropdown-menu">
-      <a href="#leistungen">Übersicht Dienstleistungen</a>
-      <a href="bagger.html">Baggerarbeiten</a>
-      <a href="#leistungen">Boden verlegen</a>
-      <a href="#kontakt">Angebot anfordern</a>
+      <!-- Hamburger für mobile -->
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- Mobile-Menü -->
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#geraete">Geräte</a>
+      <a href="#leistungen">Dienstleistungen</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#preise">Preise</a>
+      <a href="#kontakt" class="btn" style="width:max-content;">Jetzt anfragen</a>
     </div>
   </div>
+</header>
 
-  <a href="#ablauf">Ablauf</a>
-  <a href="#preise">Preise</a>
-  <a href="#kontakt" class="btn">Jetzt anfragen</a>
-</div>
-      </nav>
-    </div>
-  </header>
 
   <section class="hero container">
     <h1>Baumaschinen & Werkzeuge & Dienstleistungen – fair, schnell, zuverlässig.</h1>
@@ -521,19 +506,19 @@ section {
 </script>
 
 <script>
-  // Dropdown öffnen/schließen
-  const dd = document.getElementById('dl-drop');
-  if (dd) {
-    const toggle = dd.querySelector('.dropdown-toggle');
-    toggle.addEventListener('click', function (e) {
-      e.stopPropagation();
-      dd.classList.toggle('open');
+  const menuBtn = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+
+  menuBtn.addEventListener('click', function () {
+    mobileNav.classList.toggle('show');
+  });
+
+  // Optional: beim Klick auf einen Link Menü wieder schließen
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('show');
     });
-    // Klick außerhalb schließt wieder
-    document.addEventListener('click', function () {
-      dd.classList.remove('open');
-    });
-  }
+  });
 </script>
   
 </body>
