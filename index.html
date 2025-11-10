@@ -87,7 +87,21 @@ nav {
   background: var(--accent-2);
 }
 
+/* Grid für die Gerätekarten */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
 
+/* einzelne Karte (Kachel) */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+  border: 1px solid rgba(148,163,184,.14);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
 
 
 
@@ -134,19 +148,9 @@ nav {
     .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px}
     .small{font-size:13px;color:#9aa7bd}
     @media (max-width:720px){.strip{grid-template-columns:1fr} form{grid-template-columns:1fr} .footer-grid{grid-template-columns:1fr}}
-    .brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-
-
-.brand span {
-  font-weight: 800;
-  letter-spacing: .3px;
-}
-
+   
+    
+    
   </style>
 
 </head>
