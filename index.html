@@ -36,7 +36,19 @@
     .section{padding:48px 0;border-top:1px solid rgba(148,163,184,.08)}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
     .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));border:1px solid rgba(148,163,184,.14);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-    .card .img{height:160px;background:#0b1220 url('https://images.unsplash.com/photo-1603561240205-6e3a2502c255?q=80&w=1200&auto=format&fit=crop') center/cover}
+    .card .img {
+  height: 160px;
+  background: #0b1220 center/cover no-repeat;
+}
+.card:nth-child(1) .img {
+  background-image: url('/bagger1.png');
+}
+.card:nth-child(2) .img {
+  background-image: url('https://images.unsplash.com/photo-1511456886385-eda114a7a8b8?q=80&w=1200&auto=format&fit=crop');
+}
+.card:nth-child(3) .img {
+  background-image: url('https://images.unsplash.com/photo-1523419409543-0883da3ad5bb?q=80&w=1200&auto=format&fit=crop');
+}
     .card .body{padding:16px}
     .badge{display:inline-block;background:rgba(34,197,94,.15);color:#bbf7d0;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:700}
     .price{font-weight:800;font-size:20px;margin-top:8px}
@@ -72,9 +84,7 @@
   font-weight: 800;
   letter-spacing: .3px;
 }
-    .card:nth-child(1) .img {
-  background-image: url('bagger1.png');
-}
+
   </style>
 </head>
 <body>
