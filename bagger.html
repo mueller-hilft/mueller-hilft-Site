@@ -52,6 +52,42 @@
       color: #f29a2e;
       text-decoration: none;
     }
+
+/* Bildgalerie */
+.gallery {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+.gallery img {
+  height: 180px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Lightbox-Stil */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  cursor: zoom-out;
+}
+
+    
   </style>
 </head>
 <body>
@@ -62,11 +98,16 @@
   <div class="container">
     <h1>Minibagger 1,9 t (Caterpillar 301.8C)</h1>
 
-    <div class="gallery">
-      <img src="/bagger1.png" alt="Bagger Seitenansicht">
-      <img src="/bagger1-2.png" alt="Bagger beim Einsatz">
-      <img src="/bagger1-3.png" alt="Bagger mit Zubehör">
-    </div>
+<div class="gallery">
+  <img src="/bagger1.png" alt="Bagger Seitenansicht">
+  <img src="/bagger1-2.png" alt="Bagger beim Einsatz">
+  <img src="/bagger1-3.png" alt="Bagger mit Zubehör">
+</div>
+
+<!-- Lightbox (unsichtbar, bis ein Bild geklickt wird) -->
+<div id="lightbox" class="lightbox">
+  <img id="lightbox-img" src="" alt="">
+</div>
 
     <div class="details">
       <h2>Technische Daten</h2>
@@ -89,5 +130,24 @@
       <a href="index.html#kontakt" class="back">Jetzt unverbindlich anfragen →</a>
     </div>
   </div>
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const galleryImgs = document.querySelectorAll('.gallery img');
+
+  galleryImgs.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+      document.body.style.overflow = 'hidden'; // Scroll sperren
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = ''; // Scroll wieder erlauben
+  });
+</script>
+  
 </body>
 </html>
