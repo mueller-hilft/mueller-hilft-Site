@@ -167,6 +167,80 @@ nav {
 section {
   scroll-margin-top: 100px;
 }
+
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Dropdown-Container */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #1f2324;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: #ffffff;
+  min-width: 190px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  padding: 8px 0;
+  display: none;
+  z-index: 200;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 8px 14px;
+  color: #1f2324;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(242,154,46,.1);
+  color: #1f2324;
+}
+
+/* Dropdown sichtbar wenn .open */
+.dropdown.open .dropdown-menu {
+  display: block;
+}
+
+/* mobile: nav umbrechen */
+@media (max-width: 720px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 10px;
+    height: auto;
+  }
+  .nav {
+    flex-wrap: wrap;
+  }
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+  }
+  .dropdown-menu a {
+    padding: 6px 0;
+    background: transparent;
+  }
+}
     
     
   </style>
@@ -190,13 +264,22 @@ section {
 
 </div>
         <div class="nav">
-          <a href="#geraete">Geräte</a>
-          <a href="#ablauf">Ablauf</a>
-          <a href="#leistungen">Dienstleistungen</a>
-          <a href="#preise">Preise</a>
-                    
-          <a href="#kontakt" class="btn">Jetzt anfragen</a>
-        </div>
+  <a href="#geraete">Geräte</a>
+
+  <div class="dropdown" id="dl-drop">
+    <span class="dropdown-toggle">Dienstleistungen ▾</span>
+    <div class="dropdown-menu">
+      <a href="#leistungen">Übersicht Dienstleistungen</a>
+      <a href="bagger.html">Baggerarbeiten</a>
+      <a href="#leistungen">Boden verlegen</a>
+      <a href="#kontakt">Angebot anfordern</a>
+    </div>
+  </div>
+
+  <a href="#ablauf">Ablauf</a>
+  <a href="#preise">Preise</a>
+  <a href="#kontakt" class="btn">Jetzt anfragen</a>
+</div>
       </nav>
     </div>
   </header>
@@ -435,6 +518,22 @@ section {
       slide.style.backgroundImage = "url('" + imgs[i] + "')";
     }, 4000);
   });
+</script>
+
+<script>
+  // Dropdown öffnen/schließen
+  const dd = document.getElementById('dl-drop');
+  if (dd) {
+    const toggle = dd.querySelector('.dropdown-toggle');
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      dd.classList.toggle('open');
+    });
+    // Klick außerhalb schließt wieder
+    document.addEventListener('click', function () {
+      dd.classList.remove('open');
+    });
+  }
 </script>
   
 </body>
