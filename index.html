@@ -128,7 +128,22 @@ nav {
 }
 
     
-    .card .body{padding:16px}
+ .card .body{padding:16px}
+
+/* Slideshow-Bildbereich in der Karte */
+.img-slideshow {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: var(--radius) var(--radius) 0 0;
+  transition: background-image 0.8s ease-in-out;
+}
+    
+
+
+
+    
     .badge{display:inline-block;background:rgba(34,197,94,.15);color:#bbf7d0;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:700}
     .price{font-weight:800;font-size:20px;margin-top:8px}
     .list{color:var(--muted);font-size:14px;line-height:1.6}
@@ -200,7 +215,10 @@ nav {
       <p class="hint">Baustein: Kopieren Sie Karten für weitere Geräte. Bild/Preis/Details anpassen.</p>
       <div class="grid">
         <article class="card">
-          <div class="img" aria-label="Minibagger"></div>
+          <div
+  class="img-slideshow"
+  data-images="/bagger1.png,/bagger1-2.png,/bagger1-3.png">
+</div>
           <div class="body">
             <span class="badge">Bagger 1,9 t</span>
             <h3>Minibagger inkl. Tieflöffel</h3>
@@ -345,5 +363,24 @@ nav {
   </footer>
 
   <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+
+<script>
+  // alle divs mit Slideshow suchen
+  document.querySelectorAll('.img-slideshow').forEach(function(slide) {
+    const imgs = slide.dataset.images.split(',').map(s => s.trim()).filter(Boolean);
+    if (!imgs.length) return;
+
+    // erstes Bild setzen
+    let i = 0;
+    slide.style.backgroundImage = "url('" + imgs[0] + "')";
+
+    // alle 4 Sekunden wechseln
+    setInterval(function() {
+      i = (i + 1) % imgs.length;
+      slide.style.backgroundImage = "url('" + imgs[i] + "')";
+    }, 4000);
+  });
+</script>
+  
 </body>
 </html>
