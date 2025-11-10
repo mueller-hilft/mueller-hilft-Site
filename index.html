@@ -24,29 +24,77 @@
     .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
     .btn{display:inline-block;background:var(--accent);color:#0b0f1a;padding:12px 18px;border-radius:12px;font-weight:700;box-shadow:var(--shadow);transition:.2s transform}
     .btn:hover{transform:translateY(-2px);background:var(--accent-2)}
-    header {
+    /* --- HEADER & NAVIGATION --- */
+header {
   position: sticky;
   top: 0;
-  backdrop-filter: saturate(180%) blur(8px);
-  background: #e9eae5;          /* heller Streifen */
-  border-bottom: 1px solid rgba(148,163,184,.15);
+  background: #e9eae5; /* heller Streifen */
+  border-bottom: 1px solid rgba(148,163,184,.25);
   z-index: 50;
+  backdrop-filter: saturate(180%) blur(8px);
 }
-    nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .brand{font-weight:800;letter-spacing:.3px}
-    .nav a{opacity:.9;margin-left:18px}
-    .hero{padding:64px 0 40px}
-    .hero h1{font-size:clamp(28px,5vw,48px);line-height:1.1;margin:0 0 10px}
-    .hero p{color:var(--muted);font-size:clamp(16px,2.5vw,18px);max-width:760px}
-    .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
-    .pill{background:rgba(148,163,184,.12);padding:10px 14px;border-radius:999px;text-align:center;color:#cbd5e1}
-    .section{padding:48px 0;border-top:1px solid rgba(148,163,184,.08)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));border:1px solid rgba(148,163,184,.14);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-    .card .img {
-  height: 160px;
-  background: #0b1220 center/cover no-repeat;
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
 }
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand img {
+  height: 60px;          /* optimale Logogröße für Header */
+  width: auto;           /* hält Seitenverhältnis */
+  display: block;
+}
+
+.brand span {
+  font-weight: 800;
+  letter-spacing: .4px;
+  color: #1f2324;        /* dunkle Schrift passend zum hellen Header */
+  font-size: 1.2rem;
+}
+
+.nav a {
+  color: #1f2324;        /* Lesbar auf hellem Hintergrund */
+  opacity: 0.9;
+  margin-left: 22px;
+  font-weight: 600;
+  transition: color .2s ease;
+}
+
+.nav a:hover {
+  color: var(--accent);  /* Orange aus deiner CI als Hoverfarbe */
+}
+
+.btn {
+  background: var(--accent);
+  color: #1f2324;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  transition: .2s transform, .2s background;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: var(--accent-2);
+}
+
+
+
+
+
+
+
+    
+    
 .card:nth-child(1) .img {
   background-image: url('/bagger1.png');
 }
@@ -93,7 +141,17 @@
 }
 
   </style>
+
 </head>
+
+
+
+
+
+
+
+
+  
 <body>
   <header>
     <div class="container">
