@@ -287,6 +287,27 @@ section {
   }
 }
 
+
+    /* Bildbereich für Werkzeuge (mit auto Background) */
+.card-img {
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Auto-Background wird per JS gesetzt */
+.card-img.auto-bg {
+  background-color: transparent; /* JS setzt später eine Farbe */
+}
     
     
   </style>
@@ -479,18 +500,18 @@ section {
 
         
 <article class="card">
-  <a href="bohrhammer.html" style="color:inherit;text-decoration:none;">
-    <div class="img-slideshow" data-images="/werkzeuge/bohrhammer.jpg,/werkzeuge/bohrhammer2.jpg"></div>
-    <div class="body">
-      <span class="badge">Bosch Bohrhammer</span>
-      <h3>Professional GBH 18V-21</h3>
-      <div class="price">ab 10 € / Tag</div>
-      <ul class="list">
-        <li>Arbeitsbreite 40 cm</li>
-        <li>Kaution: 40 €</li>
-      </ul>
-    </div>
-  </a>
+  <div class="card-img auto-bg">
+    <img src="/werkzeuge/bohrhammer.jpg" alt="Bosch Bohrhammer Professional GBH 18V-21">
+  </div>
+  <div class="body">
+    <span class="badge">Bosch Bohrhammer</span>
+    <h3>Professional GBH 18V-21</h3>
+    <div class="price">ab 10 € / Tag</div>
+    <ul class="list">
+      <li>18 V Akku-Bohrhammer</li>
+      <li>Kaution: 40 €</li>
+    </ul>
+  </div>
 </article>
 
         
@@ -699,6 +720,31 @@ document.querySelectorAll('.img-slideshow').forEach(function(slide) {
 
   btnRight.addEventListener("click", () => {
     slider.scrollBy({ left: 300, behavior: "smooth" });
+  });
+</script>
+
+<script>
+  // Auto-Background für alle Werkzeuge mit .auto-bg
+  document.querySelectorAll('.card-img.auto-bg img').forEach(img => {
+    img.addEventListener('load', () => {
+      try {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        ctx.drawImage(img, 0, 0);
+
+        // Pixel nahe am Rand auslesen (z.B. unten links)
+        const pixel = ctx.getImageData(10, img.naturalHeight - 10, 1, 1).data;
+        const color = `rgb(${pixel[0]}, ${pixel[1]}, ${pixel[2]})`;
+
+        img.parentElement.style.backgroundColor = color;
+      } catch (e) {
+        // Falls irgendwas schiefgeht, bleibt der Hintergrund einfach transparent
+        console.warn('Auto-BG konnte nicht berechnet werden:', e);
+      }
+    });
   });
 </script>
   
