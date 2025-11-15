@@ -228,6 +228,64 @@ section {
   }
 }
 
+/* --- HORIZONTAL SLIDER --- */
+.slider-wrapper {
+  position: relative;
+  margin-top: 20px;
+}
+
+.slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.slider::-webkit-scrollbar {
+  display: none; /* keine hässlichen Scrollbars */
+}
+
+.slider .card {
+  min-width: 260px;    /* gleiche Breite wie vorher */
+  flex-shrink: 0;
+}
+
+/* Slider-Buttons */
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent);
+  border: none;
+  color: #1f2324;
+  font-size: 28px;
+  padding: 8px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: var(--shadow);
+  transition: 0.2s;
+}
+
+.slide-btn:hover {
+  background: var(--accent-2);
+}
+
+.slide-btn.left {
+  left: -10px;
+}
+
+.slide-btn.right {
+  right: -10px;
+}
+
+@media (max-width: 720px) {
+  .slide-btn {
+    display: none; /* Mobile = mit Finger wischen */
+  }
+}
+
     
     
   </style>
@@ -296,8 +354,9 @@ section {
   <section id="geraete" class="section">
     <div class="container">
       <h2>Unsere Geräte</h2>
-      <div class="grid">
-       
+<div class="slider-wrapper">
+       <button class="slide-btn left" id="slideLeft">❮</button>
+  <div class="slider" id="slider">
         
 <article class="card">
   <a href="bagger.html" style="color:inherit;text-decoration:none;">
@@ -348,6 +407,8 @@ section {
 
         
       </div>
+  
+  <button class="slide-btn right" id="slideRight">❯</button>
     </div>
   </section>
 
@@ -536,6 +597,20 @@ document.querySelectorAll('.img-slideshow').forEach(function(slide) {
     link.addEventListener('click', () => {
       mobileNav.classList.remove('show');
     });
+  });
+</script>
+
+<script>
+  const slider = document.getElementById("slider");
+  const btnLeft = document.getElementById("slideLeft");
+  const btnRight = document.getElementById("slideRight");
+
+  btnLeft.addEventListener("click", () => {
+    slider.scrollBy({ left: -300, behavior: "smooth" });
+  });
+
+  btnRight.addEventListener("click", () => {
+    slider.scrollBy({ left: 300, behavior: "smooth" });
   });
 </script>
   
