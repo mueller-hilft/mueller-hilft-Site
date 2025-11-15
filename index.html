@@ -130,16 +130,26 @@ nav {
     
  .card .body{padding:16px}
 
-/* Slideshow-Bildbereich in der Karte */
+/* Fade-Slideshow */
 .img-slideshow {
+  position: relative;
   height: 160px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: var(--radius) var(--radius) 0 0;
-  transition: background-image 0.8s ease-in-out;
+  overflow: hidden;
 }
-    
+
+.img-slideshow img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.img-slideshow img.active {
+  opacity: 1;
+}
 
 
 
@@ -491,21 +501,26 @@ section {
   <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
 
 <script>
-  // alle divs mit Slideshow suchen
-  document.querySelectorAll('.img-slideshow').forEach(function(slide) {
-    const imgs = slide.dataset.images.split(',').map(s => s.trim()).filter(Boolean);
-    if (!imgs.length) return;
+document.querySelectorAll('.img-slideshow').forEach(function(slide) {
+  const files = slide.dataset.images.split(',').map(s => s.trim());
 
-    // erstes Bild setzen
-    let i = 0;
-    slide.style.backgroundImage = "url('" + imgs[0] + "')";
-
-    // alle 4 Sekunden wechseln
-    setInterval(function() {
-      i = (i + 1) % imgs.length;
-      slide.style.backgroundImage = "url('" + imgs[i] + "')";
-    }, 4000);
+  // Bilder als <img> einfügen
+  files.forEach((src, index) => {
+    const img = document.createElement('img');
+    img.src = src;
+    if (index === 0) img.classList.add('active');
+    slide.appendChild(img);
   });
+
+  let current = 0;
+  const imgs = slide.querySelectorAll('img');
+
+  setInterval(() => {
+    imgs[current].classList.remove('active');
+    current = (current + 1) % imgs.length;
+    imgs[current].classList.add('active');
+  }, 4000);
+});
 </script>
 
 <script>
