@@ -318,34 +318,33 @@ section {
   background-color: transparent; /* JS setzt später eine Farbe */
 }
 
-/* --- WHATSAPP BUTTON --- */
+/* Standard: Unsichtbar */
 .whatsapp-btn {
-  position: fixed;
-  bottom: 18px;
-  right: 18px;
-  background: #25D366;
-  color: white;
-  padding: 12px 16px;
-  border-radius: 50px;
-  font-weight: 700;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .3);
-  text-decoration: none;
-  z-index: 9999;
-  transition: transform .2s, background .2s;
+  display: none;
 }
 
-.whatsapp-btn:hover {
-  background: #1ebb5a;
-  transform: translateY(-2px);
-}
-
-/* Mobile: etwas größer für Finger */
+/* Nur mobil anzeigen */
 @media (max-width: 720px) {
   .whatsapp-btn {
+    display: block;
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    background: #25D366;
+    color: white;
     padding: 14px 18px;
+    border-radius: 50px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .3);
+    text-decoration: none;
     font-size: 1rem;
-    bottom: 16px;
-    right: 16px;
+    z-index: 9999;
+    transition: transform .2s, background .2s;
+  }
+
+  .whatsapp-btn:hover {
+    background: #1ebb5a;
+    transform: translateY(-2px);
   }
 }
 
