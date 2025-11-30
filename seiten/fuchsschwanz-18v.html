@@ -105,6 +105,36 @@
   margin-bottom: 4px;
 }
 
+/* LIGHTBOX: Vollbild-Ansicht */
+#lightbox {
+  display: none;            /* zunächst unsichtbar */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+
+#close-lightbox {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
 
   </style>
 </head>
@@ -117,11 +147,18 @@
     <h1>Fuchsschwanz 18v</h1>
 
     
-    <div class="gallery">
-      
-        <img src="/../werkzeuge/18v fuchsschwanz.jpg" alt="Fuchsschwanz 18v Bild 1">
-      
-    </div>
+<div class="gallery">
+  
+    <img src="/../werkzeuge/18v fuchsschwanz.jpg" alt="Fuchsschwanz 18v Bild 1" class="clickable-img">
+  
+</div>
+
+<!-- Lightbox-Container -->
+<div id="lightbox">
+  <span id="close-lightbox">&times;</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
     
 
     <div class="details">
@@ -225,8 +262,32 @@
       </table>
       
 
-      <a href="index.html#kontakt" class="btn">Jetzt unverbindlich anfragen →</a>
+      <a href="../index.html#kontakt" class="btn">Jetzt unverbindlich anfragen →</a>
     </div>
   </div>
+
+<script>
+  document.querySelectorAll('.clickable-img').forEach(img => {
+    img.addEventListener('click', () => {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  document.getElementById('close-lightbox').addEventListener('click', () => {
+    document.getElementById('lightbox').style.display = 'none';
+  });
+
+  // Auch schließen beim Klick AUßERHALB des Bilds
+  document.getElementById('lightbox').addEventListener('click', (e) => {
+    if (e.target.id === 'lightbox') {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  });
+</script>
+
+
 </body>
 </html>
