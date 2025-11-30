@@ -348,7 +348,109 @@ section {
   }
 }
 
-    
+ /* --- Lieferung & Abholung --- */
+.delivery-card {
+  display: flex;
+  gap: 24px;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 24px 24px 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(148, 163, 184, .18);
+}
+
+.delivery-icon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background: rgba(242, 154, 46, .12);
+  color: var(--accent);
+}
+
+.delivery-main h2 {
+  margin: 0 0 4px;
+}
+
+.delivery-sub {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.delivery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+  margin-bottom: 12px;
+}
+
+.delivery-box {
+  background: rgba(15, 23, 42, .35);
+  border-radius: 14px;
+  padding: 14px 14px 12px;
+  border: 1px solid rgba(148, 163, 184, .15);
+}
+
+.delivery-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  background: rgba(242, 154, 46, .08);
+  color: var(--accent);
+}
+
+.delivery-price {
+  margin: 8px 0 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.delivery-meta {
+  margin: 2px 0 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.delivery-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+
+.delivery-list li {
+  margin-bottom: 4px;
+}
+
+.delivery-note {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Mobile: Icon oben, alles untereinander */
+@media (max-width: 720px) {
+  .delivery-card {
+    flex-direction: column;
+    padding: 18px 16px 16px;
+  }
+
+  .delivery-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
+  }
+}
+   
     
   </style>
 
@@ -664,7 +766,48 @@ section {
     <p class="hint">Nicht nur Geräte – wir unterstützen auch direkt auf der Baustelle oder Zuhause.</p>
     <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
       
+<section id="lieferung" class="section">
+  <div class="container">
+    <div class="delivery-card">
+      <div class="delivery-icon">🚚</div>
 
+      <div class="delivery-main">
+        <h2>Lieferung & Abholung</h2>
+        <p class="delivery-sub">
+          Selbst abholen oder bringen lassen – du entscheidest. Klare Preise ohne Kleingedrucktes.
+        </p>
+
+        <div class="delivery-grid">
+          <div class="delivery-box">
+            <span class="delivery-tag">Werkzeuge</span>
+            <p class="delivery-price">ab 19 €</p>
+            <p class="delivery-meta">bis 15 km • danach 1 €/km</p>
+            <ul class="delivery-list">
+              <li>Ideal für Akkugeräte, Kleingeräte & Gartenwerkzeug</li>
+              <li>Lieferung bis Bordsteinkante, Hilfe beim Abladen möglich</li>
+              <li>Selbstabholung jederzeit kostenlos möglich</li>
+            </ul>
+          </div>
+
+          <div class="delivery-box">
+            <span class="delivery-tag">Bagger & Maschinen</span>
+            <p class="delivery-price">ab 59 €</p>
+            <p class="delivery-meta">bis 15 km • danach 1,40 €/km</p>
+            <ul class="delivery-list">
+              <li>Transport mit Anhänger, inkl. Sicherung & Verzurrung</li>
+              <li>Einweisung vor Ort nach Bedarf</li>
+              <li>Faire Staffelung bei längeren Strecken</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="delivery-note">
+          Genaue Lieferkosten rechnen wir transparent im Angebot durch – keine Überraschungen.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       <article class="card">
         <div class="body">
