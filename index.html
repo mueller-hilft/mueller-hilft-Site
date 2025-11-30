@@ -317,6 +317,38 @@ section {
 .card-img.auto-bg {
   background-color: transparent; /* JS setzt später eine Farbe */
 }
+
+/* --- WHATSAPP BUTTON --- */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  background: #25D366;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 50px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .3);
+  text-decoration: none;
+  z-index: 9999;
+  transition: transform .2s, background .2s;
+}
+
+.whatsapp-btn:hover {
+  background: #1ebb5a;
+  transform: translateY(-2px);
+}
+
+/* Mobile: etwas größer für Finger */
+@media (max-width: 720px) {
+  .whatsapp-btn {
+    padding: 14px 18px;
+    font-size: 1rem;
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
     
     
   </style>
@@ -694,7 +726,7 @@ section {
     <div class="container">
 
       <h2>Anfrage</h2>
-      <p class="hint">Deine Daten landen direkt bei uns. Wir melden uns kurzfristig zurück.</p>
+      <p class="hint">Deine Nachricht landet direkt bei uns. Wir melden uns kurzfristig zurück.</p>
      <form action="https://formspree.io/f/xldarazy" method="POST" accept-charset="UTF-8">
         <div>
           <label>Vorname, Nachname<br>
@@ -760,6 +792,12 @@ section {
     </div>
   </footer>
 
+<a href="https://wa.me/4915785678698" class="whatsapp-btn" target="_blank">
+  💬 WhatsApp
+</a>
+
+
+  
   <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
 
 <script>
