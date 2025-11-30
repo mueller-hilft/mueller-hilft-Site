@@ -450,7 +450,12 @@ section {
     font-size: 1.6rem;
   }
 }
-   
+   /* Grid für Dienstleistungen + Lieferung */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
     
   </style>
 
@@ -762,89 +767,71 @@ section {
 
 <section id="leistungen" class="section">
   <div class="container">
-    <h2>Dienstleistungen</h2>
-    <p class="hint">Nicht nur Geräte – wir unterstützen auch direkt auf der Baustelle oder Zuhause.</p>
-    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
-      
-<section id="lieferung" class="section">
-  <div class="container">
-    <div class="delivery-card">
-      <div class="delivery-icon">🚚</div>
+    <h2>Dienstleistungen & Service</h2>
+    <p class="hint">
+      Nicht nur Geräte – wir helfen auch direkt auf der Baustelle oder rund ums Haus
+      und kümmern uns bei Bedarf um Lieferung & Abholung.
+    </p>
 
-      <div class="delivery-main">
-        <h2>Lieferung & Abholung</h2>
-        <p class="delivery-sub">
-          Selbst abholen oder bringen lassen – du entscheidest. Klare Preise ohne Kleingedrucktes.
-        </p>
-
-        <div class="delivery-grid">
-          <div class="delivery-box">
-            <span class="delivery-tag">Werkzeuge</span>
-            <p class="delivery-price">ab 19 €</p>
-            <p class="delivery-meta">bis 15 km • danach 1 €/km</p>
-            <ul class="delivery-list">
-              <li>Ideal für Akkugeräte, Kleingeräte & Gartenwerkzeug</li>
-              <li>Lieferung bis Bordsteinkante, Hilfe beim Abladen möglich</li>
-              <li>Selbstabholung jederzeit kostenlos möglich</li>
-            </ul>
-          </div>
-
-          <div class="delivery-box">
-            <span class="delivery-tag">Bagger & Maschinen</span>
-            <p class="delivery-price">ab 59 €</p>
-            <p class="delivery-meta">bis 15 km • danach 1,40 €/km</p>
-            <ul class="delivery-list">
-              <li>Transport mit Anhänger, inkl. Sicherung & Verzurrung</li>
-              <li>Einweisung vor Ort nach Bedarf</li>
-              <li>Faire Staffelung bei längeren Strecken</li>
-            </ul>
-          </div>
-        </div>
-
-        <p class="delivery-note">
-          Genaue Lieferkosten rechnen wir transparent im Angebot durch – keine Überraschungen.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
+    <div class="services-grid">
+      <!-- Karte: Dienstleistungen -->
       <article class="card">
         <div class="body">
           <h3>Dienstleistungen</h3>
           <ul class="list">
-            <li>Böden verlegen </li>
-            <li>Gartenarbeit</li>
-            <li>Kleine Erdarbeiten mit Bagger</li>
+            <li>Böden verlegen (z. B. Vinyl, Laminat, OSB)</li>
+            <li>Gartenarbeit & kleinere Erdarbeiten mit Bagger</li>
             <li>Instandsetzungen an Haus und Garten</li>
             <li>Fundamente / Punktfundamente setzen</li>
-            <li>Mithilfe bei Eigenleistung</li>
+            <li>Mithilfe bei Eigenleistung / Unterstützung auf der Baustelle</li>
           </ul>
           <a href="#kontakt" class="btn" style="margin-top:12px;display:inline-block;">Anfrage stellen</a>
         </div>
       </article>
 
-      <article class="card">
-        <div class="body">
+      <!-- Karte: Lieferung & Abholung (schicker Block) -->
+      <div class="delivery-card">
+        <div class="delivery-icon">🚚</div>
+
+        <div class="delivery-main">
           <h3>Lieferung & Abholung</h3>
-          <ul class="list">
-            <li><b>Selbstabholung</b> jederzeit möglich – kostenlos </li>
-            <li><b>Werkzeuge</b> ab 19 € (bis 15 km) – danach 1 €/km</li>
-            <li><B>Bagger / Maschinen</B>ab 59 € (bis 15 km) – danach 1,40 €/km</li>
-            <li>Genaue Preise bei Anfrage</li>
-          </ul>
+          <p class="delivery-sub">
+            Selbst abholen oder bringen lassen – du entscheidest. Klare Preise ohne Kleingedrucktes.
+          </p>
+
+          <div class="delivery-grid">
+            <div class="delivery-box">
+              <span class="delivery-tag">Werkzeuge</span>
+              <p class="delivery-price">ab 19 €</p>
+              <p class="delivery-meta">bis 15 km • danach 1 €/km</p>
+              <ul class="delivery-list">
+                <li>Ideal für Akkugeräte, Kleingeräte & Gartenwerkzeug</li>
+                <li>Lieferung bis Bordsteinkante, Hilfe beim Abladen möglich</li>
+                <li>Selbstabholung jederzeit kostenlos</li>
+              </ul>
+            </div>
+
+            <div class="delivery-box">
+              <span class="delivery-tag">Bagger & Maschinen</span>
+              <p class="delivery-price">ab 59 €</p>
+              <p class="delivery-meta">bis 15 km • danach 1,40 €/km</p>
+              <ul class="delivery-list">
+                <li>Transport mit Anhänger, inkl. Sicherung & Verzurrung</li>
+                <li>Einweisung vor Ort nach Bedarf</li>
+                <li>Faire Staffelung bei längeren Strecken</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="delivery-note">
+            Genaue Lieferkosten rechnen wir transparent im Angebot durch – keine Überraschungen.
+          </p>
         </div>
-      </article>
-
-
-
-
-
-
-      
+      </div>
     </div>
   </div>
 </section>
+
 
   <section id="ablauf" class="section">
     <div class="container">
