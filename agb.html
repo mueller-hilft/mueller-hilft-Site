@@ -6,94 +6,379 @@
   <title>AGB – mueller-hilft</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
+    :root{
       --bg:#1f2324;
       --card:#2a2f30;
       --text:#ffffff;
       --accent:#f29a2e;
+      --muted:rgba(255,255,255,.72);
+      --line:rgba(255,255,255,.10);
     }
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+      background:var(--bg);
+      color:var(--text);
     }
-    header {
-      background: #e9eae5;
-      padding: 16px 20px;
-      border-bottom: 1px solid rgba(0,0,0,.08);
+    header{
+      background:#e9eae5;
+      padding:16px 20px;
+      border-bottom:1px solid rgba(0,0,0,.08);
     }
-    header a {
-      color: #1f2324;
-      text-decoration: none;
-      font-weight: 600;
+    header a{
+      color:#1f2324;
+      text-decoration:none;
+      font-weight:600;
     }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 30px 20px 60px;
+    .container{
+      max-width:900px;
+      margin:0 auto;
+      padding:30px 20px 60px;
     }
-    h1 {
-      color: var(--accent);
-      margin-top: 0;
+    h1{
+      color:var(--accent);
+      margin:0 0 10px;
+      letter-spacing:.2px;
     }
-    h2 {
-      margin-top: 26px;
-      font-size: 1.05rem;
+    .lead{
+      margin:0 0 18px;
+      color:var(--muted);
+      line-height:1.6;
     }
-    p {
-      line-height: 1.6;
+    .toc{
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px 16px;
+      margin:18px 0 22px;
     }
-    .box {
-      background: var(--card);
-      border-radius: 14px;
-      padding: 20px;
-      margin-top: 20px;
+    .toc strong{display:block;margin-bottom:8px}
+    .toc a{
+      display:inline-block;
+      margin:6px 10px 0 0;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.12);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:600;
+      font-size:.92rem;
     }
+    .toc a:hover{border-color:rgba(242,154,46,.45)}
+    .box{
+      background:var(--card);
+      border-radius:14px;
+      padding:20px;
+      margin-top:18px;
+      border:1px solid var(--line);
+    }
+    .section-title{
+      margin:0 0 6px;
+      font-size:1.05rem;
+      color:var(--accent);
+    }
+    h2{
+      margin:18px 0 8px;
+      font-size:1rem;
+      color:#fff;
+    }
+    p{
+      margin:0 0 10px;
+      line-height:1.65;
+      color:rgba(255,255,255,.90);
+    }
+    .small{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:.92rem;
+      line-height:1.55;
+    }
+    .divider{
+      height:1px;
+      background:var(--line);
+      margin:22px 0;
+    }
+    .backtop{
+      display:inline-block;
+      margin-top:10px;
+      color:var(--muted);
+      text-decoration:none;
+      font-weight:600;
+      font-size:.92rem;
+    }
+    .backtop:hover{color:#fff}
+    section{scroll-margin-top:90px;}
+
+    .agb-hint{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin:18px 0 22px;
+}
+
+.agb-hint-item{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:14px;
+  padding:14px 16px;
+}
+
+.agb-hint-item strong{
+  display:block;
+  margin-bottom:6px;
+  color:var(--accent);
+  font-size:.95rem;
+}
+
+.agb-hint-item p{
+  margin:0;
+  font-size:.92rem;
+  line-height:1.5;
+  color:rgba(255,255,255,.85);
+}
+
+.agb-hint-item a{
+  color:#fff;
+  font-weight:600;
+  text-decoration:underline;
+}
+
+.agb-hint-item a:hover{
+  color:var(--accent);
+}
+
+@media (max-width:720px){
+  .agb-hint{
+    grid-template-columns:1fr;
+  }
+}
+
   </style>
 </head>
+
 <body>
   <header>
     <a href="index.html">← Zurück zur Geräteübersicht</a>
   </header>
 
-  <div class="container">
-    <h1>Allgemeine Geschäftsbedingungen (AGB)</h1>
+  <div class="container" id="top">
+    <h1>Allgemeine Geschäftsbedingungen</h1>
 
-    <div class="box">
-      <h2>1. Geltungsbereich</h2>
-      <p>Diese Allgemeinen Geschäftsbedingungen (nachfolgend „AGB“) von MÜLLER hilft (nachfolgend „Vermieter“) gelten für alle Verträge über die Vermietung von Baumaschinen, Werkzeugen, Geräten und Arbeitsmitteln sowie für die angebotenen Dienstleistungen, die zwischen einem Verbraucher oder Unternehmer (nachfolgend „Mieter“) und dem Vermieter hinsichtlich der auf der Website des Vermieters dargestellten Mietsachen und Dienstleistungen abgeschlossen werden. Verbraucher im Sinne dieser AGB ist jede natürliche Person, die ein Rechtsgeschäft zu Zwecken abschließt, die überwiegend weder ihrer gewerblichen noch ihrer selbständigen beruflichen Tätigkeit zugerechnet werden können. Unternehmer im Sinne dieser AGB ist eine natürliche oder juristische Person oder eine rechtsfähige Personengesellschaft, die bei Abschluss eines Rechtsgeschäfts in Ausübung ihrer gewerblichen oder selbständigen beruflichen Tätigkeit handelt.</p>
+    <div class="agb-hint">
+  <div class="agb-hint-item">
+    <strong>Vermietung</strong>
+    <p>
+      Für die Anmietung von Baumaschinen, Werkzeugen und Geräten gelten die
+      <a href="#agb-vermietung">AGB für Vermietungen</a>.
+    </p>
+  </div>
 
-      <h2>2. Vertragsabschluss</h2>
-      <p>Die Darstellung der Produkte im Online-Shop stellt kein rechtlich bindendes Angebot, sondern nur eine Aufforderung zur Anfrage dar. Der Vertrag kommt durch Anfrage des Mieters und Bestätigung durch den Vermieter zustande. Der Mieter ist bei der Anfrage dazu verpflichtet, eine E-Mail anzugeben, auf die er Zugriff hat. Für den Vertragsschluss steht ausschließlich die deutsche Sprache zur Verfügung. Mündliche Absprachen sind nur wirksam, wenn sie bestätigt wurden. </p>
+  <div class="agb-hint-item">
+    <strong>Dienstleistungen</strong>
+    <p>
+      Für handwerkliche Leistungen, Erdarbeiten und sonstige Services gelten die
+      <a href="#agb-dienstleistungen">AGB für Dienstleistungen</a>.
+    </p>
+  </div>
+</div>
 
-      <h2>3. Mietdauer und Rückgabe</h2>
-      <p>Die Mietdauer wird bei Vertragsschluss festgelegt. Bei Überschreitung der vereinbarten Mietdauer ist der Mieter verpflichtet, dem Vermieter für jeden Tag der Überschreitung den entsprechenden Tagespreis zuzüglich eines Mietzinses von 10% zu bezahlen. Die Mietsache ist gereinigt, betankt (falls erforderlich) und in ordnungsgemäßem Zustand zurückzugeben.</p>
 
-      <h2>4. Mietpreis und Zahlungsbedinungen</h2>
-      <p>Es gelten die jeweils vereinbarten Tages- oder Wochenpreise. Der Mietpreis umfasst die Vergütung für die Überlassung der Mietsache sowie für deren Instandhaltung. Auf Wunsch des Mieters vorgenommene Anpassungen und/oder Änderungen der Mietsache sind gesondert zu vergüten, soweit sie nicht zur Sicherung des vertragsmäßigen Gebrauchs erforderlich sind. Der Mietpreis wird mit Rechnungsstellung sofort fällig, sofern keine andere Zahlungsfrist vereinbart ist. Die Begleichung erfolgt wahlweise in bar oder per Überweisung. Bei Erstkunden kann der Vermieter eine Vorauszahlung oder vollständige Vorkasse verlangen.</p>
+    <!-- =========================
+         AGB VERMIETUNG
+    ========================== -->
+    <section id="agb-vermietung">
+      <div class="box">
+        <div class="section-title">AGB für Vermietungen</div>
 
-      <h2>5. Kaution</h2>
-      <p>Zur Sicherung seiner Ansprüche behält der Vermieter sich vor, vom Mieter eine Sicherheit in Form einer Kaution zu verlangen, deren Höhe auf der Website des Vermieters angegeben wird. Die Kaution ist vom Mieter im Voraus zu entrichten.
-Gibt der Mieter die Mietsache bei Beendigung des Mietverhältnisses in ordnungsgemäßem Zustand, so zahlt der Vermieter die vom Mieter gezahlte Kaution innerhalb von sieben Kalendertagen unter Nutzung des gleichen Zahlungsmittels, welches der Mieter für die Zahlung der Kaution und/oder Rechnung verwendet hat, an den Mieter zurück.
-Gibt der Mieter die Mietsache nicht vollständig oder nicht in ordnungsgemäßem Zustand zurück, oder ist die Mietsache dauerhaft abhandengekommen, so behält der Vermieter den entsprechenden Betrag von der Kaution zur Deckung seines Schadens ein. Geltendmachung eines darüber hinaus gehenden Schadens behält sich der Vermieter ausdrücklich vor.
-</p>
+        <h2>Geltungsbereich</h2>
+        <p>
+          Diese Allgemeinen Geschäftsbedingungen (nachfolgend „AGB“) von MÜLLER hilft
+          (nachfolgend „Vermieter“) gelten für alle Verträge über die Vermietung von
+          Baumaschinen, Werkzeugen, Geräten und Arbeitsmitteln, die zwischen einem
+          Verbraucher oder Unternehmer (nachfolgend „Mieter“) und dem Vermieter
+          hinsichtlich der auf der Website des Vermieters dargestellten Mietsachen
+          abgeschlossen werden. Verbraucher im Sinne dieser AGB ist jede natürliche
+          Person, die ein Rechtsgeschäft zu Zwecken abschließt, die überwiegend weder
+          ihrer gewerblichen noch ihrer selbständigen beruflichen Tätigkeit zugerechnet
+          werden können. Unternehmer im Sinne dieser AGB ist eine natürliche oder
+          juristische Person oder eine rechtsfähige Personengesellschaft, die bei Abschluss
+          eines Rechtsgeschäfts in Ausübung ihrer gewerblichen oder selbständigen
+          beruflichen Tätigkeit handelt.
+        </p>
 
-      <h2>6. Pflichten des Mieters</h2>
-      <p>Die Überlassung der Mietsache erfolgt zur ausschließlichen Benutzung durch den Mieter. Er hat den die Wartungs-, Pflege- und Gebrauchsanweisungen des Vermieters im Rahmen des ihm Zumutbaren Folge zu leisten. Kennzeichnungen der Mietsache, insbesondere Schilder, Nummern oder Aufschriften, dürfen nicht entfernt, verändert oder unkenntlich gemacht werden. Mängel und Beschädigungen an der Mietsache sind beim Vermieter unverzüglich anzuzeigen. Für Schäden, die während der Mietzeit entstehen und auf unsachgemäße Nutzung zurückzuführen sind, haftet der Mieter. Verschleiß ist von dieser Regelung ausgenommen. Reparaturen an der Mietsache dürfen nur nach Rücksprache mit dem Vermieter durchgeführt werden. Der Mieter ist ohne Erlaubnis des Vermieters nicht berechtigt, den Gebrauch an der Mietsache einem Dritten zu überlassen, insbesondere diese zu vermieten oder zu verleihen.</p>
+        <h2>Vertragsabschluss</h2>
+        <p>
+          Die Darstellung der Produkte im Online-Shop stellt kein rechtlich bindendes Angebot,
+          sondern nur eine Aufforderung zur Anfrage dar. Der Vertrag kommt durch Anfrage des
+          Mieters und Bestätigung durch den Vermieter zustande. Der Mieter ist bei der Anfrage
+          dazu verpflichtet, eine E-Mail anzugeben, auf die er Zugriff hat. Für den Vertragsschluss
+          steht ausschließlich die deutsche Sprache zur Verfügung. Mündliche Absprachen sind nur
+          wirksam, wenn sie bestätigt wurden.
+        </p>
 
-      <h2>7. Dienstleistungen</h2>
-      <p>Dienstleistungen werden je nach Vereinbarung entweder nach tatsächlichem Aufwand oder zu einem vorher festgelegten Pauschalpreis berechnet. Anfallende Materialkosten werden gesondert in Rechnung gestellt.</p>
+        <h2>Mietdauer und Rückgabe</h2>
+        <p>
+          Die Mietdauer wird bei Vertragsschluss festgelegt. Bei Überschreitung der vereinbarten
+          Mietdauer ist der Mieter verpflichtet, für jeden angefangenen Tag der Überschreitung den
+          entsprechenden Tagesmietpreis zuzüglich eines Zuschlags von 10 % zu bezahlen. Die Mietsache
+          ist gereinigt, betankt (falls erforderlich) und in ordnungsgemäßem Zustand zurückzugeben.
+        </p>
 
-      <h2>8. Haftung</h2>
-      <p>Der Vermieter haftet für Vorsatz und grobe Fahrlässigkeit. Im Übrigen ist eine Haftung des Vermieters ausgeschlossen. Für Ausfallzeiten, die durch höhere Gewalt oder verspätete Rückgabe des Vormieters entstehen, wird vom Vermieter keinerlei Haftung übernommen.</p>
+        <h2>Mietpreis und Zahlungsbedingungen</h2>
+        <p>
+          Es gelten die jeweils vereinbarten Tages- oder Wochenpreise. Der Mietpreis umfasst die
+          Vergütung für die Überlassung der Mietsache sowie für deren Instandhaltung. Auf Wunsch
+          des Mieters vorgenommene Anpassungen und/oder Änderungen der Mietsache sind gesondert zu
+          vergüten, soweit sie nicht zur Sicherung des vertragsmäßigen Gebrauchs erforderlich sind.
+          Der Mietpreis wird mit Rechnungsstellung sofort fällig, sofern keine andere Zahlungsfrist
+          vereinbart ist. Die Begleichung erfolgt wahlweise in bar oder per Überweisung. Bei Erstkunden
+          kann der Vermieter eine Vorauszahlung oder vollständige Vorkasse verlangen.
+        </p>
 
-      <h2>9. Gerichtsstand</h2>
-      <p>Es gilt deutsches Recht. Gerichtsstand ist – soweit rechtlich zulässig – der Sitz des Unternehmens.</p>
+        <h2>Kaution</h2>
+        <p>
+          Zur Sicherung seiner Ansprüche behält der Vermieter sich vor, vom Mieter eine Sicherheit in Form
+          einer Kaution zu verlangen, deren Höhe auf der Website des Vermieters angegeben wird. Die Kaution
+          ist vom Mieter im Voraus zu entrichten. Gibt der Mieter die Mietsache bei Beendigung des Mietverhältnisses
+          in ordnungsgemäßem Zustand, so zahlt der Vermieter die vom Mieter gezahlte Kaution innerhalb von sieben
+          Kalendertagen unter Nutzung des gleichen Zahlungsmittels, welches der Mieter für die Zahlung der Kaution
+          und/oder Rechnung verwendet hat, an den Mieter zurück. Gibt der Mieter die Mietsache nicht vollständig oder
+          nicht in ordnungsgemäßem Zustand zurück, oder ist die Mietsache dauerhaft abhandengekommen, so behält der
+          Vermieter den entsprechenden Betrag von der Kaution zur Deckung seines Schadens ein. Bei Verlust, Diebstahl
+          oder Totalschaden der Mietsache haftet der Mieter in Höhe des Wiederbeschaffungswertes.
+        </p>
 
-      <h2>10. Salvatorische Klausel</h2>
-      <p>Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.</p>
-    </div>
+        <h2>Pflichten des Mieters</h2>
+        <p>
+          Die Überlassung der Mietsache erfolgt zur ausschließlichen Benutzung durch den Mieter. Er hat die Wartungs-,
+          Pflege- und Gebrauchsanweisungen des Vermieters im Rahmen des ihm Zumutbaren Folge zu leisten. Kennzeichnungen
+          der Mietsache, insbesondere Schilder, Nummern oder Aufschriften, dürfen nicht entfernt, verändert oder
+          unkenntlich gemacht werden. Mängel und Beschädigungen an der Mietsache sind beim Vermieter unverzüglich
+          anzuzeigen. Für Schäden, die während der Mietzeit entstehen und auf unsachgemäße Nutzung zurückzuführen sind,
+          haftet der Mieter. Verschleiß ist von dieser Regelung ausgenommen. Reparaturen an der Mietsache dürfen nur nach
+          Rücksprache mit dem Vermieter durchgeführt werden. Der Mieter ist ohne Erlaubnis des Vermieters nicht berechtigt,
+          den Gebrauch an der Mietsache einem Dritten zu überlassen, insbesondere diese zu vermieten oder zu verleihen.
+          Der Mieter ist für eine ausreichende Versicherung der Mietsache während der Mietdauer selbst verantwortlich,
+          sofern nichts anderes vereinbart wurde. Der Mieter bestätigt, zu dem gemieteten Gerät ein Merkblatt mit
+          sicherheitsrelevanten Hinweisen sowie Informationen zur bestimmungsgemäßen Verwendung erhalten zu haben.
+          Der Mieter verpflichtet sich, die Hinweise des Merkblatts sowie die Herstellerangaben zu beachten und das Gerät
+          ausschließlich sachgemäß zu verwenden. Schäden, die durch Nichtbeachtung der Hinweise, unsachgemäßen Gebrauch
+          oder eine unzulässige Weitergabe an Dritte entstehen, gehen zu Lasten des Mieters.
+        </p>
+
+        <h2>Gefahrübergang</h2>
+        <p>
+          Die Gefahr des zufälligen Untergangs oder der Verschlechterung der Mietsache geht mit Übergabe der Mietsache an
+          den Mieter auf diesen über. Bei Lieferung geht die Gefahr mit Abladen am vereinbarten Übergabeort auf den Mieter über.
+        </p>
+
+        <h2>Haftung</h2>
+        <p>
+          Der Vermieter haftet unbeschränkt bei Vorsatz und grober Fahrlässigkeit sowie bei Verletzung von Leben, Körper oder
+          Gesundheit. Bei leicht fahrlässiger Verletzung wesentlicher Vertragspflichten haftet der Vermieter nur auf den
+          vertragstypischen, vorhersehbaren Schaden. Im Übrigen ist die Haftung ausgeschlossen. Für Ausfallzeiten, die durch höhere
+          Gewalt oder verspätete Rückgabe des Vormieters entstehen, wird vom Vermieter keinerlei Haftung übernommen.
+        </p>
+
+        <h2>Gerichtsstand</h2>
+        <p>
+          Es gilt deutsches Recht. Gerichtsstand ist – soweit rechtlich zulässig – der Sitz des Unternehmens.
+        </p>
+
+        <h2>Salvatorische Klausel</h2>
+        <p>
+          Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.
+        </p>
+
+        <a class="backtop" href="#top">↑ nach oben</a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- =========================
+         AGB DIENSTLEISTUNGEN
+    ========================== -->
+    <section id="agb-dienstleistungen">
+      <div class="box">
+        <div class="section-title">AGB für Dienstleistungen</div>
+
+        <h2>Geltungsbereich</h2>
+        <p>
+          Diese Allgemeinen Geschäftsbedingungen (nachfolgend „AGB“) von MÜLLER hilft (nachfolgend „Auftragnehmer“)
+          gelten für alle Verträge über die Erbringung von Dienstleistungen, die zwischen einem Verbraucher oder
+          Unternehmer (nachfolgend „Auftraggeber“) und dem Auftragnehmer geschlossen werden. Verbraucher ist jede
+          natürliche Person, die ein Rechtsgeschäft zu Zwecken abschließt, die überwiegend weder ihrer gewerblichen
+          noch ihrer selbständigen beruflichen Tätigkeit zugerechnet werden können. Unternehmer ist eine natürliche
+          oder juristische Person oder eine rechtsfähige Personengesellschaft, die bei Abschluss eines Rechtsgeschäfts
+          in Ausübung ihrer gewerblichen oder selbständigen beruflichen Tätigkeit handelt.
+        </p>
+
+        <h2>Vertragsabschluss</h2>
+        <p>
+          Die Darstellung der Dienstleistungen auf der Website stellt kein rechtlich bindendes Angebot, sondern eine
+          Aufforderung zur Anfrage dar. Ein Vertrag kommt durch Anfrage des Auftraggebers und ausdrückliche Bestätigung
+          durch den Auftragnehmer zustande. Für den Vertragsschluss steht ausschließlich die deutsche Sprache zur Verfügung.
+          Mündliche Absprachen sind nur wirksam, wenn sie schriftlich oder in Textform bestätigt wurden.
+        </p>
+
+        <h2>Leistungsumfang</h2>
+        <p>
+          Der Umfang der geschuldeten Dienstleistungen ergibt sich aus der jeweiligen Vereinbarung oder dem Angebot des
+          Auftragnehmers. Soweit nicht ausdrücklich anders vereinbart, handelt es sich um Dienstleistungen und nicht um
+          Werkleistungen; ein bestimmter Erfolg wird nicht geschuldet. Der Auftragnehmer ist berechtigt, Teilleistungen zu
+          erbringen, soweit diese dem Auftraggeber zumutbar sind.
+        </p>
+
+        <h2>Vergütung und Zahlungsbedingungen</h2>
+        <p>
+          Die Vergütung der Dienstleistungen erfolgt entweder nach tatsächlichem Zeitaufwand oder zu einem vorab vereinbarten
+          Pauschalpreis. Anfallende Materialkosten, Entsorgungsgebühren oder sonstige Zusatzleistungen werden gesondert berechnet,
+          sofern nichts anderes vereinbart wurde. Rechnungen sind, sofern nicht anders vereinbart, sofort nach Rechnungsstellung ohne
+          Abzug zur Zahlung fällig. Der Auftragnehmer ist berechtigt, bei Erstkunden oder größeren Aufträgen eine angemessene Vorauszahlung
+          zu verlangen.
+        </p>
+
+        <h2>Mitwirkungspflichten des Auftraggebers</h2>
+        <p>
+          Der Auftraggeber ist verpflichtet, alle für die Durchführung der Dienstleistung erforderlichen Informationen, Zugänge und
+          Voraussetzungen rechtzeitig bereitzustellen. Verzögerungen oder Mehraufwand, die aufgrund fehlender oder unzureichender Mitwirkung
+          entstehen, gehen zu Lasten des Auftraggebers und können gesondert berechnet werden.
+        </p>
+
+        <h2>Termine und Ausführung</h2>
+        <p>
+          Termine und Ausführungsfristen sind nur verbindlich, wenn sie ausdrücklich als verbindlich vereinbart wurden. Verzögerungen aufgrund
+          höherer Gewalt, witterungsbedingter Umstände oder unvorhersehbarer Ereignisse berechtigen den Auftragnehmer, Termine angemessen zu verschieben.
+        </p>
+
+        <h2>Haftung</h2>
+        <p>
+          Der Auftragnehmer haftet unbeschränkt bei Vorsatz und grober Fahrlässigkeit sowie bei Verletzung von Leben, Körper oder Gesundheit.
+          Bei leicht fahrlässiger Verletzung wesentlicher Vertragspflichten haftet der Auftragnehmer nur auf den vertragstypischen, vorhersehbaren
+          Schaden. Im Übrigen ist die Haftung ausgeschlossen. Für Schäden, die aufgrund unzureichender Mitwirkung des Auftraggebers oder aufgrund von
+          Umständen außerhalb des Einflussbereichs des Auftragnehmers entstehen, wird keine Haftung übernommen.
+        </p>
+
+        <h2>Gerichtsstand</h2>
+        <p>
+          Es gilt deutsches Recht. Gerichtsstand ist – soweit rechtlich zulässig – der Sitz des Unternehmens.
+        </p>
+
+        <h2>Salvatorische Klausel</h2>
+        <p>
+          Sollten einzelne Bestimmungen dieser AGB ganz oder teilweise unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen
+          unberührt.
+        </p>
+
+        <a class="backtop" href="#top">↑ nach oben</a>
+      </div>
+    </section>
+
+    <p class="small">
+      Hinweis: Maßgeblich sind die jeweils vereinbarten Vertragsunterlagen (z.B. Mietvertrag oder Angebot/Auftrag).
+    </p>
   </div>
 </body>
 </html>
