@@ -21,7 +21,7 @@
           "@type": "Product",
           "name": "CAT 301.8 Minibagger",
           "description": "Kompakter Minibagger inklusive zwei Tieflöffeln.",
-          "offers": {"@type": "Offer", "price": "139.00", "priceCurrency": "EUR", "availability": "https://schema.org/InStock"}
+          "offers": {"@type": "Offer", "price": "129.00", "priceCurrency": "EUR", "availability": "https://schema.org/InStock"}
         }
       },
       {
@@ -192,6 +192,21 @@
     .clean-list li { margin: 6px 0; }
     .price-main { font-size: 2.15rem; font-weight: 800; line-height: 1; }
     .price-main span { color: var(--accent); }
+    .term-prices {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 17px 0;
+    }
+    .term-price {
+      background: var(--card-2);
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      padding: 13px;
+    }
+    .term-price small { display: block; color: var(--muted); }
+    .term-price strong { display: block; color: var(--accent); font-size: 1.45rem; line-height: 1.2; margin: 2px 0; }
+    .term-price span { color: #e3e7e7; font-size: .86rem; }
     .muted { color: var(--muted); }
     .price-facts {
       display: grid;
@@ -245,7 +260,7 @@
     .compatibility strong { display: block; margin-bottom: 4px; }
 
     .accessories { margin-top: 34px; }
-    .accessory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .accessory-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
     .accessory {
       border: 1px solid var(--line);
       border-radius: 15px;
@@ -288,6 +303,7 @@
     @media (max-width: 520px) {
       .container { padding-top: 22px; }
       .header-cta { display: none; }
+      .term-prices { grid-template-columns: 1fr; }
       .price-facts { grid-template-columns: 1fr; }
       .hammer-content { padding: 20px 17px; }
     }
@@ -316,7 +332,7 @@
         <div class="actions">
           <a class="btn" href="/index.html#kontakt">Minibagger anfragen</a>
           <a class="btn secondary" href="#hydraulikhammer">Zum Hydraulikhammer ↓</a>
-          <a class="btn secondary" href="/greifer.html">Zum Mehrzweckgreifer →</a>
+          <a class="btn secondary" href="#mehrzweckgreifer">Zum Mehrzweckgreifer ↓</a>
         </div>
       </div>
       <figure class="hero-media">
@@ -343,15 +359,19 @@
       </article>
       <article class="panel">
         <h2>Mietpreis Minibagger</h2>
-        <div class="price-main"><span>139 €</span> / Tag</div>
+        <div class="price-main"><span>129 €</span> / Tag</div>
         <p class="muted">Bruttopreis für Privatkunden</p>
+        <div class="term-prices" aria-label="Mietpreisstaffel">
+          <div class="term-price"><small>2 Tage</small><strong>239 €</strong><span>bis 16 Betriebsstunden</span></div>
+          <div class="term-price"><small>1 Woche</small><strong>599 €</strong><span>7 Kalendertage · bis 40 Betriebsstunden</span></div>
+        </div>
         <div class="price-facts">
           <div class="fact"><small>Inklusivzeit</small><strong>8 Betriebsstunden</strong></div>
           <div class="fact"><small>Mehrstunde</small><strong>22 €</strong></div>
           <div class="fact"><small>Kaution</small><strong>400 €</strong></div>
           <div class="fact"><small>Transport</small><strong>ab 59 €</strong></div>
         </div>
-        <p class="muted">Transport bis 15 km ab 59 €, darüber 1,40 €/km. Den genauen Preis nennen wir vor der Reservierung.</p>
+        <p class="muted">Ein Miettag umfasst bis zu 8 Betriebsstunden. Transport bis 15 km ab 59 €, darüber 1,40 €/km. Den genauen Preis nennen wir vor der Reservierung.</p>
       </article>
     </section>
 
@@ -383,15 +403,37 @@
       </article>
     </section>
 
+    <section class="hammer-section" id="mehrzweckgreifer">
+      <article class="hammer-card">
+        <div class="hammer-image">
+          <img src="/baumaschinen/mehrzweckgreifer-detail.webp" width="1024" height="768" alt="Hydraulischer Mehrzweckgreifer am CAT 301.8" loading="lazy">
+        </div>
+        <div class="hammer-content">
+          <span class="status">Auch separat mietbar</span>
+          <h2 class="hammer-title">Hydraulischer Mehrzweckgreifer</h2>
+          <p>Zum Greifen, Sortieren und kontrollierten Versetzen von Steinen, Holz und anderem Material. Der Greifer kann zusammen mit unserem Minibagger oder als einzelnes Anbaugerät gemietet werden.</p>
+          <div class="hammer-price"><span>45 €</span> / Tag</div>
+          <p class="muted">Bruttopreis · Kaution bei Einzelmiete nach Vereinbarung</p>
+          <ul class="clean-list">
+            <li>Einzelmiete oder zum CAT 301.8 zubuchbar</li>
+            <li>Für Garten-, Erd- und Sortierarbeiten</li>
+            <li>Technische Abstimmung vor der Reservierung</li>
+          </ul>
+          <div class="compatibility">
+            <strong>Wichtig bei Einzelmiete</strong>
+            Vorher prüfen wir gemeinsam Aufnahme, Trägergewicht, Hydraulikleistung, Steuerkreise und Kupplungen deines Baggers. So ist sichergestellt, dass Greifer und Trägermaschine technisch zusammenpassen.
+          </div>
+          <div class="actions">
+            <a class="btn" href="/index.html#kontakt">Mehrzweckgreifer anfragen</a>
+            <a class="btn secondary" href="/greifer.html">Alle Details zum Greifer</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
     <section class="accessories">
       <h2>Weitere Anbaugeräte</h2>
       <div class="accessory-grid">
-        <article class="accessory">
-          <h3>Mehrzweckgreifer</h3>
-          <p class="muted">Zum Greifen, Sortieren und Versetzen von Steinen, Holz und anderem Material.</p>
-          <div class="accessory-price">45 € / Tag · auch separat mietbar</div>
-          <p><a href="/greifer.html">Details zum Mehrzweckgreifer →</a></p>
-        </article>
         <article class="accessory">
           <h3>Hydr. Grabenräumlöffel</h3>
           <p class="muted">1 m breit, zum Planieren, Böschungsarbeiten und sauberen Abziehen.</p>
