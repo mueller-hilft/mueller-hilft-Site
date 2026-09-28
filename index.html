@@ -350,6 +350,18 @@ section {
   display: block;
 }
 
+.card-img.rental-photo {
+  background: #202526;
+}
+
+.card-img.rental-photo img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+}
+
 /* Auto-Background wird per JS gesetzt */
 .card-img.auto-bg {
   background-color: transparent; /* JS setzt später eine Farbe */
@@ -570,19 +582,58 @@ section {
 
 <article class="card">
   <a href="bagger.html" style="color:inherit;text-decoration:none;">
-    <div class="img-slideshow" data-images="/baumaschinen/cat-301-8-einsatz.webp,/baumaschinen/mehrzweckgreifer-detail.webp,/baumaschinen/hydraulikhammer-haener-cat-301-8.webp"></div>
+    <div class="card-img rental-photo">
+      <img src="/baumaschinen/cat-301-8-einsatz.webp" width="1024" height="768" alt="CAT 301.8 Minibagger im Baustelleneinsatz">
+    </div>
     <div class="body">
       <span class="badge">CAT 301.8 • ca. 1,9 t</span>
       <h3>Minibagger inkl. 2 Tieflöffel</h3>
       <div class="price">139 € / Tag</div>
       <ul class="list">
         <li>8 Betriebsstunden inklusive</li>
-        <li>Hydraulikhammer auch einzeln: 60 € / Tag</li>
+        <li>Zwei Tieflöffel inklusive</li>
         <li>Kaution Minibagger: 400 €</li>
       </ul>
     </div>
   </a>
 </article>
+
+<article class="card">
+  <a href="bagger.html#hydraulikhammer" style="color:inherit;text-decoration:none;">
+    <div class="card-img rental-photo">
+      <img src="/baumaschinen/hydraulikhammer-haener-cat-301-8.webp" width="1024" height="768" alt="HÄNER Hydraulikhammer im Felseinsatz">
+    </div>
+    <div class="body">
+      <span class="badge">HÄNER • Anbaugerät</span>
+      <h3>Hydraulikhammer</h3>
+      <div class="price">60 € / Tag</div>
+      <ul class="list">
+        <li>Auch einzeln mietbar</li>
+        <li>Für Beton, Mauerwerk und Naturstein</li>
+        <li>Technische Abstimmung vorab</li>
+      </ul>
+    </div>
+  </a>
+</article>
+
+<article class="card">
+  <a href="greifer.html" style="color:inherit;text-decoration:none;">
+    <div class="card-img rental-photo">
+      <img src="/baumaschinen/mehrzweckgreifer-detail.webp" width="1024" height="768" alt="Hydraulischer Mehrzweckgreifer am Minibagger">
+    </div>
+    <div class="body">
+      <span class="badge">Hydraulisches Anbaugerät</span>
+      <h3>Mehrzweckgreifer</h3>
+      <div class="price">45 € / Tag</div>
+      <ul class="list">
+        <li>Auch einzeln mietbar</li>
+        <li>Für Steine, Holz und Sortierarbeiten</li>
+        <li>Technische Abstimmung vorab</li>
+      </ul>
+    </div>
+  </a>
+</article>
+
 <article class="card">
   <a href="seiten/hydraulische-presszange.html" style="color:inherit;text-decoration:none;">
     <div class="card-img auto-bg">
@@ -859,6 +910,7 @@ section {
       </div>
   
   <button class="slide-btn right" id="slideRight">❯</button>
+    </div>
     </div>
   </section>
 
