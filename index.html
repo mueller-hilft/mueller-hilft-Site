@@ -362,6 +362,36 @@ section {
   object-fit: cover;
 }
 
+@media (max-width: 720px) {
+  .slider {
+    gap: 14px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .slider .card {
+    width: 220px;
+    min-width: 220px;
+    scroll-snap-align: start;
+  }
+
+  .slider .card-img,
+  .slider .img-slideshow {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .slider .card .body {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 374px) {
+  .slider .card {
+    width: 205px;
+    min-width: 205px;
+  }
+}
+
 /* Auto-Background wird per JS gesetzt */
 .card-img.auto-bg {
   background-color: transparent; /* JS setzt später eine Farbe */
