@@ -7,6 +7,11 @@
 <meta name="description" content="Minibagger, Anbaugeräte und Werkzeuge in Böbingen mieten – nahe Schwäbisch Gmünd und Aalen. Faire Preise, Einweisung sowie Lieferung auf Wunsch.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#1f2324">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="canonical" href="https://www.mueller-hilft.de/">
 <meta property="og:locale" content="de_DE">
 <meta property="og:type" content="website">
@@ -68,9 +73,7 @@
 }
 </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/fonts/inter.css">
   <style>
 :root {
   --bg:#1f2324;         /* Dunkelgrau als Hintergrund */
@@ -179,11 +182,6 @@ nav {
 /* Gerät 1: dein Bagger */
 .card:nth-child(1) .img {
   background-image: url('/baumaschinen/cat-301-8-einsatz.webp');
-}
-
-/* Gerät 2 */
-.card:nth-child(2) .img {
-  background-image: url('https://images.unsplash.com/photo-1511456886385-eda114a7a8b8?q=80&w=1200&auto=format&fit=crop');
 }
 
 /* Gerät 3 */
@@ -624,7 +622,7 @@ section {
       <div class="pill">✔ Transparente Preise & Kaution</div>
       <div class="pill">✔ Zustellung/Abholung auf Wunsch</div>
     </div>
-    <a href="#kontakt" class="btn" style="margin-top:20px;">📧 Unverbindlich anfragen</a> <a href="tel:+4915785678698" class="btn" style="margin-top:20px;">📞Jetzt anrufen</a> <a href="https://wa.me/4915785678698" class="btn" style="margin-top:20px;">📱 WhatsApp Nachricht senden</a>
+    <a href="#kontakt" class="btn" style="margin-top:20px;">📧 Unverbindlich anfragen</a> <a href="tel:+4915785678698" class="btn" style="margin-top:20px;">📞Jetzt anrufen</a> <a href="https://wa.me/4915785678698" class="btn" style="margin-top:20px;" rel="noreferrer" referrerpolicy="no-referrer">📱 WhatsApp Nachricht senden</a>
   </section>
 
 
@@ -1119,41 +1117,45 @@ section {
 
       <h2>Anfrage</h2>
       <p class="hint">Ihre Nachricht landet direkt bei uns. Wir melden uns kurzfristig zurück.</p>
-     <form action="https://formspree.io/f/xldarazy" method="POST" accept-charset="UTF-8">
+     <form action="https://formspree.io/f/xldarazy" method="POST" accept-charset="UTF-8" aria-describedby="contact-privacy">
         <div>
           <label>Vorname, Nachname<br>
-            <input name="name" required placeholder="Max Mustermann">
+            <input name="name" required autocomplete="name" placeholder="Max Mustermann">
           </label>
         </div>
         <div>
           <label>E-Mail<br>
-            <input name="_replyto" type="email" required placeholder="max@example.de">
+            <input name="_replyto" type="email" required autocomplete="email" placeholder="max@example.de">
           </label>
         </div>
         <div>
-          <label>Telefon<br>
-            <input name="phone" placeholder="0151 ...">
+          <label>Telefon (optional)<br>
+            <input name="phone" type="tel" autocomplete="tel" placeholder="0151 ...">
           </label>
         </div>
         <div>
-          <label>Zeitraum<br>
+          <label>Zeitraum (optional)<br>
             <input name="dates" placeholder="12.03.–14.03.">
           </label>
         </div>
         <div class="full">
-          <label>Gerät/Anliegen<br>
+          <label>Gerät/Anliegen (optional)<br>
             <textarea name="message" placeholder="Welches Gerät, Zubehör, Lieferung ja/nein …"></textarea>
           </label>
         </div>
 
         <input type="hidden" name="_subject" value="Neue Anfrage über mueller-hilft.de">
         <input type="hidden" name="_redirect" value="https://www.mueller-hilft.de/?danke=1">
-        <input type="text" name="_gotcha" style="display:none">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="full">
           <button class="btn" type="submit">Anfrage senden</button>
         </div>
-        <p class="hint full">Mit Senden akzeptieren Sie unsere AGB und Datenschutzhinweise.</p>
+        <p class="hint full" id="contact-privacy">Wir verarbeiten Ihre Angaben zur Bearbeitung Ihrer Anfrage.
+          Zum Versand nutzen wir Formspree (USA). Einzelheiten finden Sie in unserer
+          <a href="/datenschutz.html#kontaktformular" style="text-decoration:underline;">Datenschutzerklärung</a>.
+          Alternativ können Sie uns per <a href="mailto:info@mueller-hilft.de" style="text-decoration:underline;">E-Mail</a>
+          oder <a href="tel:+4915785678698" style="text-decoration:underline;">Telefon</a> kontaktieren.</p>
       </form>
     </div>
   </section>
@@ -1184,7 +1186,7 @@ section {
     </div>
   </footer>
 
-<a href="https://wa.me/4915785678698" class="whatsapp-btn" target="_blank">
+<a href="https://wa.me/4915785678698" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">
   💬 WhatsApp
 </a>
 
