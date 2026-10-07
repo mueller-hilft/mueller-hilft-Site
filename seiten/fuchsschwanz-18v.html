@@ -422,8 +422,10 @@
 </script>
 
 
+  <link rel="stylesheet" href="/rental-request.css">
+  <script src="/rental-request.js" defer></script>
 </head>
-<body>
+<body data-rental-device="Bosch GSA 18V-LI Säbelsäge">
   <header>
     <a href="/#geraete">← Zurück zur Geräteübersicht</a>
   </header>
@@ -534,10 +536,23 @@
     Zubehör: 1 Zubehörteil inklusive, weiteres Zubehör gegen Aufpreis.
   </div>
 
-  <div class="pricing-actions">
-    <a href="/#kontakt" class="btn">Jetzt unverbindlich anfragen →</a>
-    <a href="/#geraete" class="btn-ghost">Weitere Geräte ansehen</a>
+  <fieldset class="rental-period">
+  <legend>Mietzeitraum (optional)</legend>
+  <div class="rental-date-fields">
+    <label for="rental-start">Mietbeginn
+      <input type="date" id="rental-start" aria-describedby="rental-period-note">
+    </label>
+    <label for="rental-end">Rückgabe
+      <input type="date" id="rental-end" aria-describedby="rental-period-note">
+    </label>
   </div>
+  <p class="rental-period-note" id="rental-period-note">Auch ohne Datum anfragen. Die Verfügbarkeit bestätigen wir persönlich.</p>
+</fieldset>
+<div class="pricing-actions">
+    <a data-rental-form data-rental-device="Bosch GSA 18V-LI Säbelsäge" href="/?geraet=Bosch+GSA+18V-LI+S%C3%A4bels%C3%A4ge#kontakt" class="btn">Jetzt unverbindlich anfragen →</a>
+    <a href="/#geraete" class="btn-ghost">Weitere Geräte ansehen</a>
+    <a class="rental-whatsapp" data-rental-whatsapp href="https://wa.me/4915785678698?text=Hallo%2C+ich+m%C3%B6chte+folgendes+Ger%C3%A4t+mieten%3A%0ABosch+GSA+18V-LI+S%C3%A4bels%C3%A4ge%0A%0AMietzeitraum%3A+noch+offen%0A%0AIst+das+Ger%C3%A4t+verf%C3%BCgbar%3F" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Per WhatsApp anfragen</a>
+</div>
 </div>
 
 

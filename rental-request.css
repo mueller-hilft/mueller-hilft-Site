@@ -1,0 +1,46 @@
+.rental-period {
+  box-sizing: border-box;
+  min-width: 0;
+  margin: 22px 0 14px;
+  padding: 14px;
+  border: 1px solid rgba(148,163,184,.24);
+  border-radius: 12px;
+  color: inherit;
+}
+.rental-period legend { padding: 0 6px; font-size: .9rem; font-weight: 600; }
+.rental-date-fields { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+.rental-date-fields label { min-width: 0; font-size: .875rem; font-weight: 600; }
+.rental-date-fields input {
+  display: block;
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
+  margin-top: 7px;
+  border: 1px solid rgba(148,163,184,.3);
+  border-radius: 8px;
+  padding: 10px;
+  background: #1f2324;
+  color: #fff;
+  color-scheme: dark;
+  font: inherit;
+}
+.rental-date-fields input:focus-visible { outline: 2px solid #f29a2e; outline-offset: 2px; }
+.rental-period-note { color: #b7bdbe; font-size: .8rem; line-height: 1.5; margin: 10px 0 0; }
+.rental-whatsapp {
+  display: inline-flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border: 1px solid rgba(148,163,184,.4);
+  border-radius: 12px;
+  background: transparent;
+  color: inherit;
+  font-weight: 700;
+  text-decoration: none;
+}
+.rental-whatsapp:hover { border-color: #f29a2e; background: rgba(255,255,255,.05); }
+.rental-whatsapp:focus-visible { outline: 3px solid #f29a2e; outline-offset: 3px; }
+#kontakt input, #kontakt textarea { box-sizing: border-box; }
+@media (max-width: 520px) { .rental-whatsapp { width: 100%; text-align: center; } }
+@media (max-width: 359px) { .rental-date-fields { grid-template-columns: 1fr; } }

@@ -228,12 +228,14 @@
       .panel { padding: 18px; }
     }
   </style>
+  <link rel="stylesheet" href="/rental-request.css">
+  <script src="/rental-request.js" defer></script>
 </head>
-<body>
+<body data-rental-device="Inspektionskamera">
   <header>
     <div class="header-inner">
       <a class="back-link" href="../#geraete">← Zurück zur Geräteübersicht</a>
-      <a class="header-cta" href="../#kontakt">Verfügbarkeit anfragen</a>
+      <a data-rental-form data-rental-device="Inspektionskamera" class="header-cta" href="/?geraet=Inspektionskamera#kontakt">Verfügbarkeit anfragen</a>
     </div>
   </header>
 
@@ -250,10 +252,23 @@
           <span class="chip">Integriertes Display</span>
           <span class="chip">Beleuchteter Kamerakopf</span>
         </div>
-        <div class="actions">
-          <a class="btn" href="../#kontakt">Inspektionskamera anfragen</a>
+        <fieldset class="rental-period">
+  <legend>Mietzeitraum (optional)</legend>
+  <div class="rental-date-fields">
+    <label for="rental-start">Mietbeginn
+      <input type="date" id="rental-start" aria-describedby="rental-period-note">
+    </label>
+    <label for="rental-end">Rückgabe
+      <input type="date" id="rental-end" aria-describedby="rental-period-note">
+    </label>
+  </div>
+  <p class="rental-period-note" id="rental-period-note">Auch ohne Datum anfragen. Die Verfügbarkeit bestätigen wir persönlich.</p>
+</fieldset>
+<div class="actions">
+          <a data-rental-form data-rental-device="Inspektionskamera" class="btn" href="/?geraet=Inspektionskamera#kontakt">Inspektionskamera anfragen</a>
           <a class="btn secondary" href="tel:+4915785678698">0157 85678698</a>
-        </div>
+    <a class="rental-whatsapp" data-rental-whatsapp href="https://wa.me/4915785678698?text=Hallo%2C+ich+m%C3%B6chte+folgendes+Ger%C3%A4t+mieten%3A%0AInspektionskamera%0A%0AMietzeitraum%3A+noch+offen%0A%0AIst+das+Ger%C3%A4t+verf%C3%BCgbar%3F" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Per WhatsApp anfragen</a>
+</div>
       </div>
       <figure class="hero-media">
         <img src="/werkzeuge/bosch-inspektionskamera.webp" width="1448" height="1086" alt="Bosch Professional Inspektionskamera mit flexiblem Kamerakabel">

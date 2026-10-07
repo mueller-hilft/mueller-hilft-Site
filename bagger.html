@@ -328,12 +328,14 @@
       .hammer-content { padding: 20px 17px; }
     }
   </style>
+  <link rel="stylesheet" href="/rental-request.css">
+  <script src="/rental-request.js" defer></script>
 </head>
-<body>
+<body data-rental-device="CAT 301.8 Minibagger">
   <header>
     <div class="header-inner">
       <a class="back-link" href="/#geraete">← Zurück zur Geräteübersicht</a>
-      <a class="header-cta" href="/#kontakt">Verfügbarkeit anfragen</a>
+      <a data-rental-form data-rental-device="CAT 301.8 Minibagger" class="header-cta" href="/?geraet=CAT+301.8+Minibagger#kontakt">Verfügbarkeit anfragen</a>
     </div>
   </header>
 
@@ -349,12 +351,25 @@
           <span class="chip">Einweisung inklusive</span>
           <span class="chip">Lieferung möglich</span>
         </div>
-        <div class="actions">
-          <a class="btn" href="/#kontakt">Minibagger anfragen</a>
+        <fieldset class="rental-period">
+  <legend>Mietzeitraum (optional)</legend>
+  <div class="rental-date-fields">
+    <label for="rental-start">Mietbeginn
+      <input type="date" id="rental-start" aria-describedby="rental-period-note">
+    </label>
+    <label for="rental-end">Rückgabe
+      <input type="date" id="rental-end" aria-describedby="rental-period-note">
+    </label>
+  </div>
+  <p class="rental-period-note" id="rental-period-note">Auch ohne Datum anfragen. Die Verfügbarkeit bestätigen wir persönlich.</p>
+</fieldset>
+<div class="actions">
+          <a data-rental-form data-rental-device="CAT 301.8 Minibagger" class="btn" href="/?geraet=CAT+301.8+Minibagger#kontakt">Minibagger anfragen</a>
           <a class="btn secondary" href="#hydraulikhammer">Zum Hydraulikhammer ↓</a>
           <a class="btn secondary" href="#mehrzweckgreifer">Zum Mehrzweckgreifer ↓</a>
           <a class="btn secondary" href="#grabenraeumloeffel">Zum Grabenräumlöffel ↓</a>
-        </div>
+    <a class="rental-whatsapp" data-rental-whatsapp href="https://wa.me/4915785678698?text=Hallo%2C+ich+m%C3%B6chte+folgendes+Ger%C3%A4t+mieten%3A%0ACAT+301.8+Minibagger%0A%0AMietzeitraum%3A+noch+offen%0A%0AIst+das+Ger%C3%A4t+verf%C3%BCgbar%3F" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Per WhatsApp anfragen</a>
+</div>
       </div>
       <figure class="hero-media">
         <img src="/baumaschinen/cat-301-8-einsatz.webp" width="1024" height="768" alt="CAT 301.8 Minibagger von MÜLLER hilft im Baustelleneinsatz" fetchpriority="high">
@@ -447,7 +462,7 @@
             MS01-Aufnahme sowie Flat-Face-Stecker (FF) der Baugrößen 1 und 2.
           </div>
           <div class="actions">
-            <a class="btn" href="/#kontakt">Mehrzweckgreifer anfragen</a>
+            <a data-rental-form data-rental-device="Mehrzweckgreifer" class="btn" href="/?geraet=Mehrzweckgreifer#kontakt">Mehrzweckgreifer anfragen</a>
             <a class="btn secondary" href="/greifer.html">Alle Details zum Greifer</a>
           </div>
         </div>
@@ -475,7 +490,7 @@
             MS01-Aufnahme sowie Flat-Face-Stecker (FF) der Baugrößen 1 und 2.
           </div>
           <div class="actions">
-            <a class="btn" href="/#kontakt">Grabenräumlöffel anfragen</a>
+            <a data-rental-form data-rental-device="Hydraulischer Grabenräumlöffel (zum CAT 301.8)" class="btn" href="/?geraet=Hydraulischer+Grabenr%C3%A4uml%C3%B6ffel+%28zum+CAT+301.8%29#kontakt">Grabenräumlöffel anfragen</a>
             <a class="btn secondary" href="/grabenraeumloeffel.html">Alle Details zum Löffel</a>
           </div>
         </div>

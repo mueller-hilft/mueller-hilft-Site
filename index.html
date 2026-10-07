@@ -291,74 +291,6 @@ section {
   }
 }
 
-/* --- HORIZONTAL SLIDER --- */
-.slider-wrapper {
-  position: relative;
-  margin-top: 20px;
-}
-
-.slider {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  gap: 20px;
-  padding: 10px 0;
-}
-
-.slider::-webkit-scrollbar {
-  display: none; /* keine hässlichen Scrollbars */
-}
-
-.slider .card {
-  min-width: 260px;    /* gleiche Breite wie vorher */
-  flex-shrink: 0;
-}
-
-/* Slider-Buttons */
-.slide-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--accent);
-  border: none;
-  color: #1f2324;
-  font-size: 28px;
-  padding: 8px 14px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
-  box-shadow: var(--shadow);
-  transition: 0.2s;
-}
-
-.slide-btn:hover {
-  background: var(--accent-2);
-}
-
-.slide-btn.left {
-  left: -10px;
-}
-
-.slide-btn.right {
-  right: -10px;
-}
-@media (min-width: 1024px) {
-  .slide-btn.left {
-    left: -36px;
-  }
-
-  .slide-btn.right {
-    right: -36px;
-  }
-}
-
-@media (max-width: 720px) {
-  .slide-btn {
-    display: none; /* Mobile = mit Finger wischen */
-  }
-}
-
-
     /* Bildbereich für Werkzeuge (mit auto Background) */
 .card-img {
   height: 160px;
@@ -385,36 +317,6 @@ section {
   max-width: none;
   max-height: none;
   object-fit: cover;
-}
-
-@media (max-width: 720px) {
-  .slider {
-    gap: 14px;
-    scroll-snap-type: x mandatory;
-  }
-
-  .slider .card {
-    width: 220px;
-    min-width: 220px;
-    scroll-snap-align: start;
-  }
-
-  .slider .card-img,
-  .slider .img-slideshow {
-    height: auto;
-    aspect-ratio: 4 / 3;
-  }
-
-  .slider .card .body {
-    padding: 14px;
-  }
-}
-
-@media (max-width: 374px) {
-  .slider .card {
-    width: 205px;
-    min-width: 205px;
-  }
 }
 
 /* Auto-Background wird per JS gesetzt */
@@ -563,6 +465,10 @@ section {
 
   </style>
 
+  <link rel="stylesheet" href="/device-catalog.css">
+  <link rel="stylesheet" href="/rental-request.css">
+  <script src="/device-catalog.js" defer></script>
+  <script src="/rental-request.js" defer></script>
 </head>
 
 
@@ -630,11 +536,17 @@ section {
   <section id="geraete" class="section">
     <div class="container">
       <h2>Unsere Geräte</h2>
-<div class="slider-wrapper">
-       <button class="slide-btn left" id="slideLeft">❮</button>
-  <div class="slider" id="slider">
+<p class="catalog-intro">Passendes Gerät auswählen – für Erdarbeiten, Umbau oder Garten.</p>
+      <div class="catalog-filters" id="catalog-filters" role="group" aria-label="Gerätekategorie" hidden>
+        <button class="catalog-filter" type="button" data-filter="all" aria-pressed="true" aria-controls="device-grid">Alle Geräte</button>
+        <button class="catalog-filter" type="button" data-filter="maschinen" aria-pressed="false" aria-controls="device-grid">Bagger &amp; Anbaugeräte</button>
+        <button class="catalog-filter" type="button" data-filter="werkzeuge" aria-pressed="false" aria-controls="device-grid">Elektrowerkzeuge</button>
+        <button class="catalog-filter" type="button" data-filter="garten" aria-pressed="false" aria-controls="device-grid">Garten &amp; Baustelle</button>
+      </div>
+      <p class="catalog-count" id="device-count" role="status" aria-live="polite" aria-atomic="true">22 Geräte · Alle Kategorien</p>
+      <div class="device-grid" id="device-grid">
 
-<article class="card">
+<article class="card" data-category="maschinen">
   <a href="/bagger.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/cat-minibagger.webp" width="640" height="480" fetchpriority="high" decoding="async" alt="CAT 301.8 Minibagger im Baustelleneinsatz">
@@ -654,7 +566,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="maschinen">
   <a href="/hydraulikhammer.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/hydraulikhammer.webp" width="640" height="480" loading="lazy" decoding="async" alt="HÄNER Hydraulikhammer im Felseinsatz">
@@ -672,7 +584,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="maschinen">
   <a href="/greifer.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/mehrzweckgreifer.webp" width="640" height="480" loading="lazy" decoding="async" alt="Hydraulischer Mehrzweckgreifer beim Versetzen eines Natursteins">
@@ -690,7 +602,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="maschinen">
   <a href="/grabenraeumloeffel.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/grabenraeumloeffel.webp" width="640" height="480" loading="lazy" decoding="async" alt="Hydraulischer Grabenräumlöffel für den CAT 301.8">
@@ -708,7 +620,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="werkzeuge">
   <a href="/seiten/inspektionskamera.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/inspektionskamera.webp" width="640" height="480" loading="lazy" decoding="async" alt="Bosch Professional Inspektionskamera mit flexiblem Kamerakabel">
@@ -726,7 +638,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="garten">
   <a href="/seiten/hydraulische-presszange.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/presszange.webp" width="640" height="480" loading="lazy" decoding="async" alt="Hydraulische Presszange">
@@ -742,7 +654,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="werkzeuge">
   <a href="/seiten/bohrhammer-18v.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/bohrhammer.webp" width="640" height="480" loading="lazy" decoding="async" alt="Bohrhammer 18v">
@@ -758,7 +670,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="werkzeuge">
   <a href="/seiten/akkuschrauber-18v.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/akkuschrauber-18v.webp" width="640" height="480" loading="lazy" decoding="async" alt="Akkuschrauber 18v">
@@ -774,7 +686,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="werkzeuge">
   <a href="/seiten/akkuschrauber-12v.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/akkuschrauber-12v.webp" width="640" height="480" loading="lazy" decoding="async" alt="Akkuschrauber 12v">
@@ -790,7 +702,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="werkzeuge">
   <a href="/seiten/stichsaege-18v.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/stichsaege-18v.webp" width="640" height="480" loading="lazy" decoding="async" alt="Stichsäge 18v">
@@ -806,7 +718,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="werkzeuge">
   <a href="/seiten/stichsaege-12v.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/stichsaege-12v.webp" width="640" height="480" loading="lazy" decoding="async" alt="Stichsäge 12v">
@@ -822,7 +734,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="werkzeuge">
   <a href="/seiten/flex-12v.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/flex-12v.webp" width="640" height="480" loading="lazy" decoding="async" alt="Flex 12v">
@@ -838,7 +750,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="werkzeuge">
   <a href="/seiten/fuchsschwanz-12v.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/fuchsschwanz-12v.webp" width="640" height="480" loading="lazy" decoding="async" alt="Fuchsschwanz 12v">
@@ -854,7 +766,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="werkzeuge">
   <a href="/seiten/multitool-12v.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/multitool-12v.webp" width="640" height="480" loading="lazy" decoding="async" alt="Multitool 12v">
@@ -870,7 +782,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="werkzeuge">
   <a href="/seiten/fuchsschwanz-18v.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/fuchsschwanz-18v.webp" width="640" height="480" loading="lazy" decoding="async" alt="Fuchsschwanz 18v">
@@ -886,7 +798,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="werkzeuge">
   <a href="/seiten/handkreissaege-18v.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/handkreissaege-18v.webp" width="640" height="480" loading="lazy" decoding="async" alt="Handkreissäge 18v">
@@ -902,7 +814,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="werkzeuge">
   <a href="/seiten/winkelschleifer-18v.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/winkelschleifer-18v.webp" width="640" height="480" loading="lazy" decoding="async" alt="Winkelschleifer 18v">
@@ -918,7 +830,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="garten">
   <a href="/seiten/heckenschere-18v.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/heckenschere-18v.webp" width="640" height="480" loading="lazy" decoding="async" alt="Heckenschere 18v">
@@ -934,7 +846,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="werkzeuge">
   <a href="/seiten/schlagschrauber-18v.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/schlagschrauber-18v.webp" width="640" height="480" loading="lazy" decoding="async" alt="Schlagschrauber 18v">
@@ -950,7 +862,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="werkzeuge">
   <a href="/seiten/kappsaege-18v.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/kappsaege-18v.webp" width="640" height="480" loading="lazy" decoding="async" alt="Kappsäge 18v">
@@ -966,7 +878,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="garten">
   <a href="/seiten/ruettelplatte.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/ruettelplatte.webp" width="640" height="480" loading="lazy" decoding="async" alt="Rüttelplatte">
@@ -982,7 +894,7 @@ section {
   </a>
 </article>
 
-<article class="card">
+<article class="card" data-category="garten">
   <a href="/seiten/gas-heizgeblaese.html" style="color:inherit;text-decoration:none;">
     <div class="card-img rental-photo">
       <img src="/thumbnails/gas-heizgeblaese.webp" width="640" height="480" loading="lazy" decoding="async" alt="Gas-Heizgebläse">
@@ -1001,8 +913,6 @@ section {
 
       </div>
 
-  <button class="slide-btn right" id="slideRight">❯</button>
-    </div>
     </div>
   </section>
 
@@ -1230,20 +1140,6 @@ document.querySelectorAll('.img-slideshow').forEach(function(slide) {
     link.addEventListener('click', () => {
       mobileNav.classList.remove('show');
     });
-  });
-</script>
-
-<script>
-  const slider = document.getElementById("slider");
-  const btnLeft = document.getElementById("slideLeft");
-  const btnRight = document.getElementById("slideRight");
-
-  btnLeft.addEventListener("click", () => {
-    slider.scrollBy({ left: -300, behavior: "smooth" });
-  });
-
-  btnRight.addEventListener("click", () => {
-    slider.scrollBy({ left: 300, behavior: "smooth" });
   });
 </script>
 
